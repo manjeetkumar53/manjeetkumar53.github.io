@@ -338,21 +338,21 @@
     {
       "title": "OLLAMA - Goes Local!",
       "category": "Generative AI, LLM",
-      "image": "images/blog/ollama-blog.jpg",
+      "image": "",
       "url": "https://ariseai.wordpress.com/2024/04/06/ollama-local/",
       "date": "2024-06-20"
     },
     {
       "title": "Logic behind Model namings",
       "category": "Generative AI, LLM",
-      "image": "images/blog/ollama-model.jpg",
+      "image": "",
       "url": "https://ariseai.wordpress.com/2024/04/06/model-naming/",
       "date": "2024-06-19"
     },
     {
       "title": "Create your own model!",
       "category": "Generative AI, LLM",
-      "image": "images/blog/blog3.jpg",
+      "image": "",
       "url": "https://ariseai.wordpress.com/2024/04/06/custom-model/",
       "date": "2024-06-20"
     }
