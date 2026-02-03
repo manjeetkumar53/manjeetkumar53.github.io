@@ -1,0 +1,20 @@
+{
+  "title": "Engineering Insights",
+  "description": "Thoughts on AI, software architecture, and engineering leadership by Manjeet Kumar",
+  "postsPerPage": 12,
+  "showReadingTime": true,
+  "enableComments": false,
+  "categories": [
+    "GenAI",
+    "Architecture",
+    "Leadership",
+    "DevOps",
+    "Mobile",
+    "FullStack",
+    "Career"
+  ],
+  "socialShare": {
+    "enabled": true,
+    "platforms": ["linkedin", "twitter", "email"]
+  }
+}

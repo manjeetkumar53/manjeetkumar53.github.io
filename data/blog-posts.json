@@ -1,0 +1,15 @@
+[
+  {
+    "slug": "2026-02-03-welcome-to-my-blog",
+    "title": "Welcome to My New Blog!",
+    "date": "2026-02-03T10:00:00.000Z",
+    "author": "Manjeet Kumar",
+    "category": "Career",
+    "tags": ["blogging", "portfolio", "personal"],
+    "image": "",
+    "excerpt": "I'm excited to launch my engineering blog where I'll share insights about GenAI, Software Architecture, Leadership, and DevOps. Join me as I document my journey building scalable systems and leading engineering teams.",
+    "featured": true,
+    "draft": false,
+    "readingTime": 8
+  }
+]

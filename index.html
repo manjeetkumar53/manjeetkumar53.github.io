@@ -1,1642 +1,1038 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manjeet Kumar - Engineering Manager | Portfolio</title>
+    <meta name="description" content="Engineering Manager with 10+ years of experience in Java, Spring, Kubernetes, AWS, and Full-stack development">
+    <meta name="keywords" content="Engineering Manager, Java Developer, Full Stack, Technical Architect, Berlin">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicons/favicon.ico">
+    
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --primary-light: #34d399;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --dark-lighter: #334155;
+            --text: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent: #3b82f6;
+            --spacing: 1rem;
+        }
 
-	<!--
-		Basic
-	-->
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<title>Manjeet - Resume</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<meta name="description" content="manjeet resume" />
-	<meta name="keywords" content="Java developer,resume,javascript, java, full stack developer, team lead, python, data science, Machine learning" />
-	<meta name="author" content="manjeet" />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-	<!--
-		Load Fonts
-	-->
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i&amp;subset=cyrillic" rel="stylesheet">
-	<link rel="stylesheet" href="css/styles.min.css" />
-	<link rel="stylesheet" href="css/theme-colors/green.css" />
+        html {
+            scroll-behavior: smooth;
+        }
 
-	<!--[if lt IE 9]>
-	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-	<!--
-		Favicons
-	-->
-	<link rel="shortcut icon" href="images/favicons/favicon.ico">
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
 
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--dark-lighter);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        nav.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+            animation: float 20s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-50px, 50px) rotate(180deg); }
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero-content h1 .name {
+            color: var(--primary);
+            display: block;
+        }
+
+        .hero-content .typed-text {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            min-height: 2.5rem;
+        }
+
+        .hero-content .typed-text .typed-cursor {
+            color: var(--primary);
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 2px solid var(--dark-lighter);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .profile-card {
+            background: linear-gradient(135deg, var(--dark-light) 0%, var(--dark-lighter) 100%);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--dark);
+            color: var(--text-secondary);
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid var(--dark-lighter);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--dark);
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .skill-category {
+            font-size: 0.75rem;
+            color: var(--primary);
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+        }
+
+        .skill-description {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .skill-progress {
+            height: 8px;
+            background: var(--dark);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .skill-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            border-radius: 1rem;
+            transition: width 1s ease-out;
+        }
+
+        /* Experience Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--dark-lighter);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--dark);
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .timeline-header {
+            margin-bottom: 1rem;
+        }
+
+        .timeline-position {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .timeline-period {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .timeline-responsibilities {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .timeline-responsibilities li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .timeline-responsibilities li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .timeline-achievements {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--dark-lighter);
+        }
+
+        .achievement-badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+            margin: 0.25rem;
+        }
+
+        /* Highlights Grid */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .highlight-card {
+            background: var(--dark-light);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .highlight-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .highlight-title {
+            color: var(--text);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        /* Fun Facts */
+        .fun-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .fun-fact {
+            text-align: center;
+            padding: 2rem;
+            background: var(--dark-light);
+            border-radius: 1rem;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s;
+        }
+
+        .fun-fact:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+        }
+
+        .fun-fact i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .fun-fact-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .fun-fact-label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: var(--dark-light);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-category {
+            font-size: 0.75rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .blog-date {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--dark-light);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            color: var(--text-secondary);
+        }
+
+        .contact-form {
+            background: var(--dark-light);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.875rem;
+            background: var(--dark);
+            border: 1px solid var(--dark-lighter);
+            border-radius: 0.5rem;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-light);
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-text {
+            color: var(--text-secondary);
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--dark-light);
+                width: 100%;
+                padding: 2rem;
+                gap: 1rem;
+                transition: left 0.3s;
+                border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Utilities */
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
 </head>
-
 <body>
-	<div class="page">
-
-		<!--
-			Preloader
-		-->
-		<div class="preloader">
-			<div class="centrize full-width">
-				<div class="vertical-center">
-					<div class="spinner">
-						<div class="double-bounce1"></div>
-						<div class="double-bounce2"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!--
-			Header
-		-->
-		<header class="header">
-
-			<!-- logo -->
-			<div class="logo">
-				<a href="https://manjeetkumar53.github.io"><span>M</span></a>
-			</div>
-
-			<!-- menu -->
-			<div class="top-menu">
-				<ul>
-					<li class="active">
-						<a href="#home-card">
-							<span class="icon la la-home"></span>
-							<span class="link">Home</span>
-						</a>
-					</li>
-					<li>
-						<a href="#about-card">
-							<span class="icon la la-user"></span>
-							<span class="link">About</span>
-						</a>
-					</li>
-					<li>
-						<a href="#resume-card">
-							<span class="icon la la-gear"></span>
-							<span class="link">Resume</span>
-						</a>
-					</li>
-					<!--MS changes Highlights-->
-					<li>
-						<a href="#highlight-card">
-							<span class="icon la la-eye"></span>
-							<span class="link">Highlight</span>
-						</a>
-					</li>
-					<!-- <li>
-						<a href="#works-card">
-							<span class="icon la la-eye"></span>
-							<span class="link">Portfolio</span>
-						</a>
-					</li> -->
-					 <li>
-						<a href="#blog-card">
-							<span class="icon la la-newspaper-o"></span>
-							<span class="link">Blog</span>
-						</a>
-					</li>
-					<li>
-						<a href="#contacts-card">
-							<span class="icon la la-envelope"></span>
-							<span class="link">Contacts</span>
-						</a>
-					</li>
-				</ul>
-			</div>
-
-			<!-- Started socials -->
-			<div class="social">
-					<!--START NOT REQUIRED-->
-				<!--<a target="_blank" href="https://dribbble.com/"><span class="icon la la-dribbble"></span></a>-->
-					<!--END NOT REQUIRED -->
-				<a target="_blank" href="https://www.facebook.com/alex.charlie.900"><span class="icon la la-facebook"></span></a>
-				<a target="_blank" href="https://github.com/manjeetkumar53"><span class="icon la la-github"></span></a>
-				<a target="_blank" href="https://stackoverflow.com/users/1513779/alex"><span class="icon la la-stack-overflow"></span></a>
-			</div>
-
-			<!-- Mobile Menu -->
-			<span class="menu-btn">
-				<span class="m-line"></span>
-			</span>
-
-		</header>
-
-		<!--
-			Container
-		-->
-		<div class="container">
-
-			<!--
-				Card - Started
-			-->
-			<div class="card-inner card-started active" id="home-card">
-
-				<!-- Started Background -->
-				<div class="slide" style="background-image: url(images/bg.jpg);"></div>
-
-				<div class="centrize full-width">
-					<div class="vertical-center">
-
-						<!-- Started titles -->
-						<div class="title"><span>Manjeet</span> Kumar</div>
-						<div class="subtitle">
-							I am
-							<div class="typing-title">
-								<p>a <strong>Engineering Manager.</strong></p>
-								<p>a <strong>Technical Architect.</strong></p>
-								<p>a <strong>Programmer.</strong></p>
-								<p>a <strong>Full stack developer.</strong></p>
-								<p>a <strong>ML & Data Science enthusiast.</strong></p>
-							</div>
-							<span class="typed-title"></span>
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-
-			<!--
-				Card - About
-			-->
-			<div class="card-inner" id="about-card">
-				<div class="row card-container">
-
-					<!--
-						Card Wrap
-					-->
-					<div class="card-wrap col col-m-24 col-t-24 col-d-16 col-d-lg-12" data-simplebar>
-
-						<!-- About Image 
-						<div class="card-image col col-m-12 col-t-12 col-d-4 col-d-lg-6" style="background-image: url(images/profile.jpg);"></div>
-					-->
-						<!--
-							Inner Top
-						-->
-						<div class="content inner-top">
-							<div class="row">
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-									<div class="title-bg">About Me</div>
-									<div class="text">
-										<p>
-											<strong>Hello, I’m Manjeet</strong>, Engineering Manager based in Berlin, Germany. <br />
-											I have <strong>ten years</strong> of experience in Team Management, 
-											Team Building, Software Architecture Design, Database technology 
-											& Full-stack development.
-											My experience has provided me with the innovative Management & 
-											Technical skills necessary to successfully provide an Organization 
-											with multifaceted technical solutions across a wide range of software 
-											platforms.
-											I am also honing my <strong>Python</strong> skills.<br />
-										</p>
-									</div>
-									<div class="circle-bts">
-										<a href="https://docs.google.com/document/d/1Ozv3k5VVG12_YNethpzRuyRkXIZe9B04/edit?usp=sharing&ouid=104022448348629261550&rtpof=true&sd=true" target="_blank"><span><i class="icon la la-download"></i>My Resume/CV</span></a>
-										<!--<a href="https://docs.google.com/document/d/1tcNozilji0HDiz_bzW_waoxD8ZEuzj42/edit?usp=sharing&ouid=104022448348629261550&rtpof=true&sd=true" target="_blank"><span><i class="icon la la-download"></i>My Cover letter</span></a>-->
-										<a href="https://github.com/manjeetkumar53" target="_blank"><i class="icon la la-github"></i></a>
-										<a href="https://stackoverflow.com/users/1513779/alex" target="_blank"><i class="icon la la-stack-overflow"></i></a>
-										<a href="https://www.linkedin.com/in/manjeet-kumar-31963020/" target="_blank"><i class="icon la la-linkedin"></i></a>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!--
-							Services
-						-->
-						<div class="content services">
-							<div class="row">
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-									<!-- title -->
-									<div class="title"><span>My</span> Skills</div>
-
-								</div>
-							</div>
-
-							<!-- service items -->
-							<div class="row service-items">
-
-								<!-- service item -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-									<div class="service-item card-box">
-										<!--<div class="icon"><i class="la la-html5"></i></div>-->
-										<div class="name">JAVA/J2EE</div>
-										<p>
-											Working on Java/J2ee technology since 2010. Expert in designing/coding multi tier & robust systems.
-										</p>
-									</div>
-								</div>
-
-								<!-- service item -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-									<div class="service-item card-box">
-										<!--
-										<div class="icon"><i class="la la-music"></i></div>
-									-->
-										<div class="name">Spring Framework</div>
-										<p>
-											Well versed in Spring Framework & it's various flavours e.g. Spring boot, cloud & Microservices.
-										</p>
-									</div>
-								</div>
-
-								<!-- service item -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-									<div class="service-item card-box">
-										<!--<div class="icon"><i class="la la-bullhorn"></i></div>-->
-										<div class="name">Web services</div>
-										<p>
-											Expert in Designing & Developing webservices using XML, XSD & REST API.
-										</p>
-									</div>
-								</div>
-
-								<!-- service item -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-									<div class="service-item card-box">
-										<!-- <div class="icon"><i class="la la-gamepad"></i></div> -->
-										<div class="name">Database</div>
-										<p>
-											Well versed in writing CRUD queries, Views, Prodcedures & function in Oracle & MYSQL.<br/>
-										</p>
-									</div>
-								</div>
-								<!-- Cloud -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-									<div class="service-item card-box">
-										<!-- <div class="icon"><i class="la la-gamepad"></i></div> -->
-										<div class="name">Cloud</div>
-										<p>AWS & GCP<br/></p>
-									</div>
-								</div>
-								
-								<!-- Misc -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-									<div class="service-item card-box">
-										<!-- <div class="icon"><i class="la la-gamepad"></i></div> -->
-										<div class="name">Miscellaneous</div>
-										<p>NoSQL: REDIS /Elastic search<br/></p>
-										<p>ELK Stack<br/></p>
-										<p>Kafka (Consumer, Producer & Connector API)<br/></p>
-										<p>DevOps: Kubernetes, Docker & ArgoCD.<br/></p>
-									</div>
-								</div>
-
-
-								<!-- service item -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-									<div class="service-item card-box">
-										<!-- <div class="icon"><i class="la la-area-chart"></i></div> -->
-										<div class="name">Web Development</div>
-										<p>
-											Skilled in HTML, CSS, Java Script & jQuery.<br/>
-											Worked on open source projects using <strong>Node JS</strong> currently hosted on github.
-										</p>
-									</div>
-								</div>
-
-								<!-- service item -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-									<div class="service-item card-box">
-										<!-- <div class="icon"><i class="la la-camera-retro"></i></div> -->
-										<div class="name">Messaging API's</div>
-										<p>
-											Twilio, Firebase, One Signal.
-										</p>
-									</div>
-								</div>
-								<!-- Version control -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-									<div class="service-item card-box">
-										<!-- <div class="icon"><i class="la la-camera-retro"></i></div> -->
-										<div class="name">Version control, Issue tracking & Build tools</div>
-										<p>
-											Maven.<br />
-											Jenkins.<br />
-											Github & Bitbucket.<br />
-											JIRA.<br />
-											SVN & Tortoise Git.
-										</p>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
-
-						<!--
-							Price Tables
-						-->
-
-						<div class="content pricing" style="display:none">
-							<div class="row">
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-									<!-- title -->
-									<div class="title"><span>Pricing</span> Tables</div>
-
-								</div>
-							</div>
-
-							<!-- pricing items -->
-							<div class="row pricing-items">
-
-								<!-- pricing item -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-									<div class="pricing-item card-box">
-										<div class="icon"><i class="la la-tachometer"></i></div>
-										<div class="name">Basic</div>
-										<div class="amount">
-											<span class="dollar">$</span>
-											<span class="number">22</span>
-											<span class="period">hour</span>
-										</div>
-										<div class="feature-list">
-											<ul>
-												<li>Web Development</li>
-												<li>Advetising</li>
-												<li>Game Development</li>
-												<li class="disable">Music Writing</li>
-												<li class="disable">Photography <strong>new</strong></li>
-											</ul>
-										</div>
-										<div class="lnks">
-											<a href="#" class="lnk">Buy <span>Basic</span></a>
-										</div>
-									</div>
-								</div>
-
-								<!-- pricing item -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-									<div class="pricing-item card-box">
-										<div class="icon"><i class="la la-rocket"></i></div>
-										<div class="name">Pro</div>
-										<div class="amount">
-											<span class="dollar">$</span>
-											<span class="number">48</span>
-											<span class="period">hour</span>
-										</div>
-										<div class="feature-list">
-											<ul>
-												<li>Web Development</li>
-												<li>Advetising</li>
-												<li>Game Development</li>
-												<li>Music Writing</li>
-												<li>Photography <strong>new</strong></li>
-											</ul>
-										</div>
-										<div class="lnks">
-											<a href="#" class="lnk">Buy <span>Pro</span></a>
-										</div>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
-
-						<!--
-							Fun Fact
-						-->
-						<div class="content fuct">
-							<div class="row">
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-									<!-- title -->
-									<div class="title"><span>Fun</span> Facts</div>
-
-								</div>
-							</div>
-
-							<!-- fuct items -->
-							<div class="row fuct-items">
-
-								<!-- fuct item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="fuct-item card-box">
-										<div class="icon"><i class="la la-file-movie-o"></i></div>
-										<div class="name">2000+ movies watched</div>
-									</div>
-								</div>
-
-								<!-- fuct item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="fuct-item card-box">
-										<div class="icon"><i class="la la-trophy"></i></div>
-										<div class="name">5 Awards Won</div>
-									</div>
-								</div>
-
-								<!-- fuct item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="fuct-item card-box">
-										<div class="icon"><i class="la la-lightbulb-o"></i></div>
-										<div class="name">57 projects Completed</div>
-									</div>
-								</div>
-
-								<!-- fuct item -->
-								<!-- <div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="fuct-item card-box">
-										<div class="icon"><i class="la la-flag-o"></i></div>
-										<div class="name">10 Countries Visited</div>
-									</div>
-								</div> -->
-
-								<!-- fuct item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="fuct-item card-box">
-										<div class="icon"><i class="la la-book"></i></div>
-										<div class="name">50+ Books Read</div>
-									</div>
-								</div>
-
-								<!-- fuct item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="fuct-item card-box">
-										<div class="icon"><i class="la la-code"></i></div>
-										<div class="name">1000000+ Lines of Code</div>
-									</div>
-								</div>
-
-								<!-- fuct item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="fuct-item card-box">
-										<div class="icon"><i class="la la-smile-o"></i></div>
-										<div class="name">150 clients worked with</div>
-									</div>
-								</div>
-
-								<!-- fuct item -->
-								<!-- <div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="fuct-item card-box">
-										<div class="icon"><i class="la la-bicycle"></i></div>
-										<div class="name">1250 km Cycled</div>
-									</div>
-								</div> -->
-
-							</div>
-
-						</div>
-
-						<!--
-							Clients
-						-->
-						<div class="content clients" style="display:none">
-							<div class="row">
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-									<!-- title -->
-									<div class="title"><span>Our</span> Clients</div>
-
-								</div>
-							</div>
-
-							<!-- client items -->
-							<div class="row client-items">
-
-								<!-- client item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="client-item card-box">
-										<div class="image">
-											<a target="_blank" href="https://www.google.com/">
-												<img src="images/clients/client_1.png" alt="" />
-											</a>
-										</div>
-									</div>
-								</div>
-
-								<!-- client item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="client-item card-box">
-										<div class="image">
-											<a target="_blank" href="https://www.google.com/">
-												<img src="images/clients/client_3.png" alt="" />
-											</a>
-										</div>
-									</div>
-								</div>
-
-								<!-- client item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="client-item card-box">
-										<div class="image">
-											<a target="_blank" href="https://www.google.com/">
-												<img src="images/clients/client_4.png" alt="" />
-											</a>
-										</div>
-									</div>
-								</div>
-
-								<!-- client item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="client-item card-box">
-										<div class="image">
-											<a target="_blank" href="https://www.google.com/">
-												<img src="images/clients/client_1.png" alt="" />
-											</a>
-										</div>
-									</div>
-								</div>
-
-								<!-- client item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="client-item card-box">
-										<div class="image">
-											<a target="_blank" href="https://www.google.com/">
-												<img src="images/clients/client_3.png" alt="" />
-											</a>
-										</div>
-									</div>
-								</div>
-
-								<!-- client item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="client-item card-box">
-										<div class="image">
-											<a target="_blank" href="https://www.google.com/">
-												<img src="images/clients/client_4.png" alt="" />
-											</a>
-										</div>
-									</div>
-								</div>
-
-								<!-- client item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="client-item card-box">
-										<div class="image">
-											<a target="_blank" href="https://www.google.com/">
-												<img src="images/clients/client_1.png" alt="" />
-											</a>
-										</div>
-									</div>
-								</div>
-
-								<!-- client item -->
-								<div class="col col-m-6 col-t-6 col-d-3 col-d-lg-3">
-									<div class="client-item card-box">
-										<div class="image">
-											<a target="_blank" href="https://www.google.com/">
-												<img src="images/clients/client_3.png" alt="" />
-											</a>
-										</div>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-
-			<!--
-				Card - Resume
-			-->
-			<div class="card-inner" id="resume-card">
-				<div class="row card-container">
-
-					<!--
-						Card Wrap
-					-->
-					<div class="card-wrap col col-m-24 col-t-24 col-d-16 col-d-lg-12" data-simplebar>
-
-						<!-- Resume Image 
-						<div class="card-image col col-m-12 col-t-12 col-d-4 col-d-lg-6" style="background-image: url(images/profile2.jpg);"></div>
-					-->
-						<!--
-							Inner Top
-						-->
-						<div class="content inner-top">
-							<div class="row">
-								<div class=" col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-									<div class="title-bg">Resume</div>
-								</div>
-							</div>
-						</div>
-
-						<!--
-							Resume
-						-->
-						<div class="content resume">
-							<div class="row">
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-
-									<!-- title -->
-									<div class="title"><span>My</span> Experience</div>
-
-									<!-- resume items -->
-									<div class="resume-items card-box">
-                                        <!-- resume item Forto -->
-										<div class="resume-item">
-											<div class="name">Engineering Manager / Forto Logistics SE, Berlin, Germany											</div>
-											<div class="date">June 2023-Present</div>
-											<p>Roles & Responsibilities:<br>
-                                                Cross-Functional Team Leadership: I orchestrated and led cross-functional teams across the entire application lifecycle, from inception and design through development, rigorous testing, deployment, and ongoing maintenance. My leadership ensured the timely delivery of project milestones and deliverables, maintaining a consistent focus on excellence.
-                                                Strategic Architectural Decision-Making: Empowered team in making strategic architectural decisions geared towards enhancing the scalability, performance, and security of our applications. These decisions contributed significantly to the overall excellence of our system and its ability to meet evolving demands.<br>
-                                                Stakeholder Collaboration: I fostered seamless collaboration with a diverse array of stakeholders, including Business, Product Management, and Operations teams. This collaboration was instrumental in delivering exceptional value to our customers, resulting in substantial revenue growth.<br>
-                                                Team Development and Mentoring: Committed to the career development of my team members, providing continuous feedback, coaching, and mentorship. This dedication fostered growth and excellence within the team, resulting in increased productivity and job satisfaction.<br>
-                                                Microservice Environment Management: My Team efficiently managed a high-load microservice environment, overseeing decoupled services and API communication while handling large data sets. This effort significantly bolstered system stability and scalability, ensuring a seamless user experience.<br>
-                                                DevOps Enhancement: My Team led efforts to enhance our DevOps stacks, implementing a ODE concept that streamlined and expedited our development & testing process.<br>
-                                                Documentation and Code Quality Assurance: My commitment to rigorous documentation and the maintenance of high code quality standards across the team led to improved system maintainability and collaboration.<br>
-                                                Talent Acquisition and Retention: Recruited and retained a highly talented team of professionals, contributing significantly to the team's excellence and long-term success.<br>
-                                                Impact:<br>
-                                                Successfully developed & delivered Booking to Shipment conversion functionality<br>
-                                                Led the enhancement and successful rollout of the Yangtze Project, bringing the unified Booking platform to Europe and Asia within just 3 months of joining.<br>
-											</p>
-										</div>
-										<!-- resume item -->
-										<div class="resume-item">
-											<div class="name">Engineering Manager / Delivery Hero SE, Berlin, Germany											</div>
-											<div class="date">November 2021-April 2023</div>
-											<p>Roles & Responsibilities:<br>
-												As an Engineering Manager in Fintech - Risk tribe my responsibility is to<br>
-												Build Anti-Fraud solutions which work with Wallet and Payment applications.<br>
-												Design and implement cutting-edge applications which will transform the delivery industry.<br>
-												Develop, Test, Deploy, Maintain and Improve application.<br>
-												Manage project priorities, deadlines and deliverables within autonomous teams.<br>
-												Architectural decision making.<br>
-												Work closely with Product management in order to provide the best value for stakeholders and our customers.<br>
-												Lead & mentor team in an emphatic, unselfish way that is respected by the team.<br>
-												Running & maintaining a (micro-)service environment with decoupled services and API communication under high load with large data sets.<br>
-												Work & enhance DevOps stacks to run immutable infrastructure, ideally with Kubernetes.<br>
-												Maintain clean, tested and well documented code across our team.<br><br>
-												My Engineering Team:
-												6 BE:  We are responsible for developing solutions to analyze Risk & Fraud prevention related to Identity & Payment.<br>
-												Technology stack: Java, Kotlin, Spring boot, Postgres DB, Docker, GitHub, AWS, Kubernetes, ArgoCD.<br>
-											</p>
-										</div>
-
-
-										<!-- resume item -->
-										<div class="resume-item">
-											<div class="name">Engineering Manager / GDI (Birchstreet system), Noida, India											</div>
-											<div class="date">December 2019 – November 2021</div>
-											<p>Roles & Responsibilities:<br>
-												Lead and align the engineering team with the organization’s goal.<br>
-												Prioritize and delegate tasks to the team (Sprint planning).<br>
-												Develop, inspire, mentor, and evaluate the engineering team.<br>
-												Create positive team culture (e.g. curious, mutually challenging, collaborative)<br>
-												Collaborate with cross-functional peers and leaders (PMs & PDMs) to deliver projects.<br>
-												Improve engineering quality and efficiency (e.g. improve workflow, code review, etc.)<br>
-												Hire qualified candidates to strengthen the company and team.<br>
-												Implement best practices in architecture for development and design.<br>
-												Drive technical roadmap and direction.<br>
-												Provide technical guidance and coaching.<br>
-												Prepare technical requirements and software design specifications.<br>
-												Encourage Team to adhere best agile methodologies & follow best scrum practices in Software development.<br>
-												Performance evaluation of Team.<br>
-												Designing Architecture & modules of best of breed (awarded by Gartner) e-procurement 
-												system which offers complete Procure to Pay solution to big names in hospitality 
-												(e.g. Hilton, Hyatt, Four seasons, Marriott, Fairmont, Accor, Sodexo, Aramark etc.) across the world.<br><br>
-												My Engineering Team:<br><br>
-												First team (7 SE & 3 QA):  We do module enhancement & development of different modules within our e-Procurement application.<br>
-												Technology stack: Java, spring, spring boot, Oracle (SQL and PL/SQL), JSP, Servlet, JS, JQuery, AG-Grid and J4 framework.<br>
-												Second team (1 SE & 1 QA): Team is responsible for Birchstreet website & OTRS development/maintenance. <br>
-												Technology stack: PHP, WordPress, MySQL.<br><br>
-												Key skills & accomplishments:<br>
-												Designed & implemented CI/CD pipelines using Jenkins, GIT & JIRA.<br>
-												Developed Integrated Log Management & Analysis system using ELK stack & Kafka.<br>
-												Developed microservices architecture (MSA) for catalog transformation, using spring boot.<br>
-												Developed MSA based integration engines, using spring boot.<br>
-												Developing an e-sourcing bidding system using Kafka message queue & Elasticsearch.<br>
-											</p>
-										</div>
-
-										<!-- resume item -->
-										<div class="resume-item">
-											<div class="name">Technical Architect / GDI (Birchstreet system), Noida, India</div>
-											<div class="date">April 2019 – December 2019</div>
-											<p>key responsibilities:<br>
-												1.	Analyzing the requirements of large systems and breaking them down into manageable units.<br>
-												2.	Researching available & incoming products to decide if they will be suitable for the project
-												rather than building a completely new system.<br>
-												3.	Working with designers and developers to explain the structure and assisting them throughout the assembly process.<br>
-												E.g. Since, this year we have plans to go live with some biggies such as Sodexo & Aramark. Hence, my prime focus is to make
-												system reliable & robust for fast processing of billions of records across various modules, such as Catalog system,
-												Purchase order, Receiving & Invoicing.<br>
-											</p>
-										</div>
-
-										<!-- resume item -->
-										<div class="resume-item">
-											<div class="name">Senior Team Lead / GDI (Birchstreet system), Noida, India</div>
-											<div class="date">January 2017 – APRIL 2019</div>
-											<p>
-												1. Coordinate with team to get things done within Sprint (using JIRA) timeline. Helping team
-												in preparing demos of what we have achieved during the Sprint timeline.<br>
-												2. Integrate new technologies in our product. Some of the new techs we have implemented are:<br><br>
-												a. We have introduced jQuery, Angular and Spring in company’s existing product.<br>
-												b. Catalog filtering & item category mapping using Machine learning & Data science.<br>
-												c. Amazon like search capability in our catalog system using Elastic search.<br>
-												d. Service worker in web pages to fetch contents from cache in absence of internet & during slowness.<br>
-												e. PUSH notification using One Signal API.<br>
-												f. Capital project management system for 2 major Hospitality giants. Four season (CPMS2) & HPI (SPMS).<br>
-											</p>
-										</div>
-
-										<!-- resume item -->
-										<div class="resume-item">
-											<div class="name">Team Lead / GDI (Birchstreet system), Noida, India</div>
-											<div class="date">January 2015 – December 2017</div>
-											<p>
-												As a Team lead my task was to handle Development & QA team. As a team we contributed to the following projects:<br>
-												1.	Implemented & Re-engineered various eProcurement modules:<br>
-												a.	CAPEX - Four seasons.<br>
-												b.	SPMS - HPI.<br>
-												c.	BSS to Accubar inventory integration using REST web services.<br>
-												2.	New UI & cross browser compatibility for BSS application. (It was developed in 1999 and was working in IE mostly).<br>
-												3.	Integrated various third party services with BSS application.<br>
-												4.	As a core member of reviewer group, my Job entitles me to review code before finalizing drop process.<br>
-											</p>
-										</div>
-
-										<!-- resume item -->
-										<div class="resume-item">
-											<div class="name">Java Developer / GDI (Birchstreet system), Noida, India</div>
-											<div class="date">January 2012 – December 2015</div>
-											<p>
-												As a Java Developer my key role responsibilities were:<br>
-												1.	Develop and re-engineer various modules using Core Java/J2EE technologies.<br>
-												2.	Writing oracle packages, procedures, functions & view.<br>
-												3.	Development & implementation of various eProcurement core modules such as:<br>
-												a.	Purchase order<br>
-												b.	Account payable<br>
-												c.	Credit Memo<br>
-												d.	Requisition<br>
-												e.	Inventory module<br>
-												f.	RFQ (Request for quotation)<br>
-												g.	Catalogue<br>
-												h.	Order guide<br>
-												i.	Order sheet & various other sub-modules<br>
-																						</p>
-										</div>
-
-
-									</div>
-								</div>
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-
-									<!-- title -->
-									<div class="title"><span>My</span> Education</div>
-
-									<!-- resume items -->
-									<div class="resume-items card-box">
-
-										<!-- resume item -->
-										<div class="resume-item">
-											<div class="name">IGNOU</div>
-											<div class="date">December 2010 <span>|</span> New Delhi, India</div>
-											<p>
-												MASTERS IN COMPUTER APPLICATION
-											</p>
-										</div>
-										<!-- resume item -->
-										<div class="resume-item">
-											<div class="name">IGNOU</div>
-											<div class="date">December 2009 <span>|</span> New Delhi, India</div>
-											<p>
-												BACHELORS IN COMPUTER APPLICATION
-											</p>
-										</div>
-										<!-- resume item -->
-										<!-- <div class="resume-item">
-											<div class="name">Programming Course</div>
-											<div class="date">2005-2006 <span>|</span> Paris</div>
-											<p>
-												Bachelor's Degree in Computer Science ABC Technical Institute, Jefferson, Missouri
-											</p>
-										</div> -->
-
-										<!-- resume item -->
-										<!-- <div class="resume-item">
-											<div class="name">Web Design Course</div>
-											<div class="date">2004-2005 <span>|</span> London</div>
-											<p>
-												Converted Photoshop layouts to web pages using HTML, CSS, and JavaScript
-											</p>
-										</div> -->
-
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!--
-							Skills
-						-->
-						<div class="content skills">
-							<div class="row">
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-
-									<!-- title -->
-									<div class="title"><span>Personal</span> Skills</div>
-
-									<!-- skills -->
-									<div class="skills-list card-box">
-										<ul>
-											<li>
-												<div class="name">Communication</div>
-												<div class="progress">
-													<div class="percentage" style="width:90%;"></div>
-												</div>
-											</li>
-											<li>
-												<div class="name">Team Work</div>
-												<div class="progress">
-													<div class="percentage" style="width:65%;"></div>
-												</div>
-											</li>
-											<li>
-												<div class="name">Leadership</div>
-												<div class="progress">
-													<div class="percentage" style="width:75%;"></div>
-												</div>
-											</li>
-											<li>
-												<div class="name">Language</div>
-												<div class="progress">
-													<div class="percentage" style="width:85%;"></div>
-												</div>
-											</li>
-										</ul>
-									</div>
-
-								</div>
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-
-									<!-- title -->
-									<div class="title"><span>Professional</span> Skills</div>
-
-									<!-- skills -->
-									<div class="skills-list card-box">
-										<ul>
-											<li>
-												<div class="name">BACKEND STACK(JAVA/JAVA SCRIPT)</div>
-												<div class="progress">
-													<div class="percentage" style="width:100%;"></div>
-												</div>
-											</li>
-											<li>
-												<div class="name">DATABASE(ORACLE/MYSQL)</div>
-												<div class="progress">
-													<div class="percentage" style="width:95%;"></div>
-												</div>
-											</li>
-											
-											<li>
-												<div class="name">CI/CD(Maven/Jenkins/Bitbucket/JIRA/GIT/GitHub)</div>
-												<div class="progress">
-													<div class="percentage" style="width:95%;"></div>
-												</div>
-											</li>
-
-											<li>
-												<div class="name">ELK Stack</div>
-												<div class="progress">
-													<div class="percentage" style="width:95%;"></div>
-												</div>
-											</li>
-
-											<li>
-												<div class="name">Kafka</div>
-												<div class="progress">
-													<div class="percentage" style="width:95%;"></div>
-												</div>
-											</li>
-
-											<li>
-												<div class="name">DevOps (Kubernetes, Docker & ArgoCD)</div>
-												<div class="progress">
-													<div class="percentage" style="width:95%;"></div>
-												</div>
-											</li>
-
-											<li>
-												<div class="name">Cloud (AWS & GCP)</div>
-												<div class="progress">
-													<div class="percentage" style="width:95%;"></div>
-												</div>
-											</li>
-
-
-											<li>
-												<div class="name">DATABASE(ORACLE/MYSQL)</div>
-												<div class="progress">
-													<div class="percentage" style="width:95%;"></div>
-												</div>
-											</li>
-											<li>
-												<div class="name">FRONTEND STACK(HTML/CSS/JS/JQUERY)</div>
-												<div class="progress">
-													<div class="percentage" style="width:95%;"></div>
-												</div>
-											</li>
-											<li>
-												<div class="name">FRAMEWORKS(Spring/Hibernate)</div>
-												<div class="progress">
-													<div class="percentage" style="width:85%;"></div>
-												</div>
-											</li>
-										</ul>
-									</div>
-
-								</div>
-							</div>
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-
-<!--card Highlight-->
-			<div class="card-inner" id="highlight-card">
-				<div class="row card-container">
-
-					<!--
-						Card Wrap
-					-->
-					<div class="card-wrap col col-m-24 col-t-24 col-d-16 col-d-lg-12" data-simplebar>
-
-						<!-- Resume Image 
-						<div class="card-image col col-m-12 col-t-12 col-d-4 col-d-lg-6" style="background-image: url(images/profile2.jpg);"></div>
-					-->
-						<!--
-							Inner Top
-						-->
-						<div class="content inner-top">
-							<div class="row">
-								<div class=" col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-									<div class="title-bg">Highlights</div>
-								</div>
-							</div>
-						</div>
-
-						<!--
-							Resume
-						-->
-						<div class="content resume">
-							<div class="row">
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-									<!-- title -->
-									<div class="title"><span>Highlights</span></div>
-
-									<!--My badges and certificates-->
-									<div class="resume-items card-box">
-										<div class="title">
-											<div class="name">
-												<a href="resumehightlights.html"><span><u>Resume Highlights</u></span></a>
-											</span>											
-											</div>
-										</div>
-									</div>
-									<!-- resume items -->
-									<div class="resume-items card-box">
-
-
-										<!-- resume item -->
-										<div class="title">
-											<div class="name">Introduced <span>jQuery, Angular</span> and <span>Spring</span> in existing product.</div>
-										</div>
-										<div class="title">
-											<div class="name">Implemented catalog filtering & item category mapping using <span>Machine learning & Data science</span></div>
-										</div>
-										<div class="title">
-											<div class="name">Implemented <span>Amazon</span> like search capability in our catalog system using <span>Elastic search</span>.</div>
-										</div>
-										<div class="title">
-											<div class="name">Implemented <span>Service worker</span> in web pages to fetch contents from cache in absence of internet & during slowness.</div>
-										</div>
-										<div class="title">
-											<div class="name">Implemented <span>PUSH notification</span> using One Signal API.</div>
-										</div>
-										<div class="title">
-											<div class="name">Well versed in <span>eProcurement</span> application.</div>
-										</div>
-										<div class="title">
-											<div class="name">Senior <span>code</span> reviewer.</div>
-										</div>
-										<div class="title">
-											<div class="name">Active member of <span>stackoverflow</span> <a href="https://stackoverflow.com/users/1513779/alex" target="_blank">Check here</a>.</div>
-										</div>
-										<div class="title">
-											<div class="name">Hosted multiple <span>repository</span> on <span>Github</span> <a href="https://github.com/manjeetkumar53" target="_blank">Check here</a> and  <a href="https://github.com/alexandercharlie" target="_blank">here</a></div>
-										</div>
-										<div class="title">
-											<div class="name">Hosted <span>PUSH code lab</span> app on <span>AWS</span> <a href="https://www.hackomania.net" target="_blank">Check here</a></div>
-										</div>
-										<div class="title">
-											<div class="name">Hosted open chat app on <span>Heroku </span><a href="https://alexi.herokuapp.com" target="_blank">Check here</a></div>
-										</div>
-										<div class="title">
-											<div class="name">Hosted <span>website</span> on <span>Github </span> <a href="https://alexandercharlie.github.io/" target="_blank">Check here</a></div>
-										</div>
-										<div class="title">
-											<div class="name">Hosted <span>Chat app</span> on <span>Github </span> <a href="https://stightle.github.io" target="_blank">Check here</a></div>
-										</div>
-										<div class="title">
-											<div class="name">Hosted my <span>profile page</span> on <span>Github</span> <a href="https://manjeetkumar53.github.io/" target="_blank">Check here</a></div>
-										</div>
-										<div class="title">
-											<div class="name">Top ranker of <span>REDIS DB</span> community-<span>RedisStars</span> <a href="https://redisstars.redislabs.com/profiles/3239acb7-f8ba-4703-a795-ff1d22470fa4" target="_blank">check here</a></div>
-										</div>
-
-									</div>
-								</div>
-						</div>
-						</div>
-						</div>
-						</div>
-						</div>
-
-
-			<!--
-				Card - Works
-			-->
-			<!-- <div class="card-inner" id="works-card">
-				<div class="row card-container">
-
-					<!--
-						Card Wrap
-					-->
-					<div class="card-wrap col col-m-24 col-t-24 col-d-16 col-d-lg-12" data-simplebar>
-
-						<!-- Work Image 
-						<div class="card-image col col-m-12 col-t-12 col-d-4 col-d-lg-6" style="background-image: url(images/profile3.jpg);"></div>
-					-->
-						<!--
-							Inner Top
-						-->
-						<div class="content inner-top">
-							<div class="row">
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-									<div class="title-bg">Portfolio</div>
-								</div>
-							</div>
-						</div>
-
-						<!--
-							Works
-						-->
-						<div class="content works">
-							<div class="row">
-								<div class="col col-m-12 col-t-5 col-d-5 col-d-lg-5">
-
-									<!-- title -->
-									<div class="title"><span>My</span> Portfolio</div>
-
-								</div>
-								<div class="col col-m-12 col-t-7 col-d-7 col-d-lg-7">
-
-									<!-- filters -->
-									<div class="filter-menu filter-button-group">
-										<div class="f_btn active">
-											<label><input type="radio" name="fl_radio" value="grid-item" />All</label>
-										</div>
-										<div class="f_btn">
-											<label><input type="radio" name="fl_radio" value="photo" />Photo</label>
-										</div>
-										<div class="f_btn">
-											<label><input type="radio" name="fl_radio" value="video" />Video</label>
-										</div>
-										<div class="f_btn">
-											<label><input type="radio" name="fl_radio" value="music" />Music</label>
-										</div>
-										<div class="f_btn">
-											<label><input type="radio" name="fl_radio" value="design" />Design</label>
-										</div>
-									</div>
-
-								</div>
-							</div>
-
-							<!-- work items -->
-							<div class="row grid-items">
-
-								<!-- work item photo -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item photo">
-									<div class="box-item card-box">
-										<div class="image">
-											<a href="images/works/work1.jpg" class="has-popup-image">
-												<img src="images/works/work1.jpg" alt="" />
-												<span class="info">
-													<span class="icon la la-camera-retro"></span>
-												</span>
-											</a>
-										</div>
-										<div class="desc">
-											<a href="images/works/work1.jpg" class="name has-popup-image">Motorcycle Helmet</a>
-											<div class="category">Photo</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- work item video -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item video">
-									<div class="box-item card-box">
-										<div class="image">
-											<a href="https://vimeo.com/97102654" class="has-popup-video">
-												<img src="images/works/work2.jpg" alt="" />
-												<span class="info">
-													<span class="icon la la-video-camera"></span>
-												</span>
-											</a>
-										</div>
-										<div class="desc">
-											<a href="https://vimeo.com/97102654" class="name has-popup-video">Minimalism Shapes</a>
-											<div class="category">Video</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- work item music -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item music">
-									<div class="box-item card-box">
-										<div class="image">
-											<a href="https://w.soundcloud.com/player/?visual=true&amp;url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F221650664&amp;show_artwork=true" class="has-popup-music">
-												<img src="images/works/work3.jpg" alt="" />
-												<span class="info">
-													<span class="icon la la-music"></span>
-												</span>
-											</a>
-										</div>
-										<div class="desc">
-											<a href="#" class="name has-popup">Staircase</a>
-											<div class="category">Music</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- work item design -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item design">
-									<div class="box-item card-box">
-										<div class="image">
-											<a href="#popup-1" class="has-popup-media">
-												<img src="images/works/work4.jpg" alt="" />
-												<span class="info">
-													<span class="icon la la-image"></span>
-												</span>
-											</a>
-										</div>
-										<div class="desc">
-											<a href="#popup-1" class="name has-popup-media">Mobile Application</a>
-											<div class="category">Design</div>
-										</div>
-										<div id="popup-1" class="popup-box mfp-fade mfp-hide">
-											<div class="content">
-												<div class="image">
-													<img src="images/works/work4.jpg" alt="">
-												</div>
-												<div class="desc">
-													<div class="post-box">
-														<h1>Mobile Application</h1>
-														<div class="blog-detail">Design</div>
-														<div class="blog-content">
-															<p>
-																So striking at of to welcomed resolved. Northward by described up household therefore
-																attention. Excellence decisively nay man yet impression for contrasted remarkably.
-															</p>
-															<p>
-																Forfeited you engrossed but gay sometimes explained. Another as studied it to evident.
-																Merry sense given he be arise. Conduct at an replied removal an amongst. Remaining
-																determine few her two cordially admitting old.
-															</p>
-															<blockquote>
-																Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-																Curae; Pellentesque suscipit.
-															</blockquote>
-															<p>
-																Tiled say decay spoil now walls meant house. My mr interest thoughts screened of outweigh
-																removing. Evening society musical besides inhabit ye my. Lose hill well up will he over on.
-																Increasing sufficient everything men him admiration unpleasing sex.
-															</p>
-															<ul class="list-style">
-																<li>Greatest properly off ham exercise all.</li>
-																<li>Unsatiable invitation its possession nor off.</li>
-																<li>All difficulty estimating unreserved increasing the solicitude.</li>
-															</ul>
-															<p>
-																Unpleasant astonished an diminution up partiality. Noisy an their of meant. Death means
-																up civil do an offer wound of.
-															</p>
-														</div>
-														<a href="#" class="button">
-															<span class="text">View Project</span>
-															<span class="arrow"></span>
-														</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- work item photo -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item photo">
-									<div class="box-item card-box">
-										<div class="image">
-											<a href="images/works/work5.jpg" class="has-popup-image">
-												<img src="images/works/work5.jpg" alt="" />
-												<span class="info">
-													<span class="icon la la-camera-retro"></span>
-												</span>
-											</a>
-										</div>
-										<div class="desc">
-											<a href="images/works/work5.jpg" class="name has-popup-image">Gereal Travels</a>
-											<div class="category">Photo</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- work item music -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item music">
-									<div class="box-item card-box">
-										<div class="image">
-											<a href="https://w.soundcloud.com/player/?visual=true&amp;url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F221650664&amp;show_artwork=true" class="has-popup-music">
-												<img src="images/works/work8.jpg" alt="" />
-												<span class="info">
-													<span class="icon la la-music"></span>
-												</span>
-											</a>
-										</div>
-										<div class="desc">
-											<a href="#" class="name has-popup">Daylight Entrance</a>
-											<div class="category">Music</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- work item video -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item video">
-									<div class="box-item card-box">
-										<div class="image">
-											<a href="https://vimeo.com/97102654" class="has-popup-video">
-												<img src="images/works/work6.jpg" alt="" />
-												<span class="info">
-													<span class="icon la la-video-camera"></span>
-												</span>
-											</a>
-										</div>
-										<div class="desc">
-											<a href="https://vimeo.com/97102654" class="name has-popup-video">Architecture</a>
-											<div class="category">Video</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- work item design -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6 grid-item design">
-									<div class="box-item card-box">
-										<div class="image">
-											<a href="#popup-2" class="has-popup-media">
-												<img src="images/works/work7.jpg" alt="" />
-												<span class="info">
-													<span class="icon la la-image"></span>
-												</span>
-											</a>
-										</div>
-										<div class="desc">
-											<a href="#popup-2" class="name has-popup-media">Social Website</a>
-											<div class="category">Design</div>
-										</div>
-										<div id="popup-2" class="popup-box mfp-fade mfp-hide">
-											<div class="content">
-												<div class="image">
-													<img src="images/works/work7.jpg" alt="">
-												</div>
-												<div class="desc">
-													<div class="post-box">
-														<h1>Mobile Application</h1>
-														<div class="blog-detail">Design</div>
-														<div class="blog-content">
-															<p>
-																So striking at of to welcomed resolved. Northward by described up household therefore
-																attention. Excellence decisively nay man yet impression for contrasted remarkably.
-															</p>
-															<p>
-																Forfeited you engrossed but gay sometimes explained. Another as studied it to evident.
-																Merry sense given he be arise. Conduct at an replied removal an amongst. Remaining
-																determine few her two cordially admitting old.
-															</p>
-															<blockquote>
-																Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-																Curae; Pellentesque suscipit.
-															</blockquote>
-															<p>
-																Tiled say decay spoil now walls meant house. My mr interest thoughts screened of outweigh
-																removing. Evening society musical besides inhabit ye my. Lose hill well up will he over on.
-																Increasing sufficient everything men him admiration unpleasing sex.
-															</p>
-															<ul class="list-style">
-																<li>Greatest properly off ham exercise all.</li>
-																<li>Unsatiable invitation its possession nor off.</li>
-																<li>All difficulty estimating unreserved increasing the solicitude.</li>
-															</ul>
-															<p>
-																Unpleasant astonished an diminution up partiality. Noisy an their of meant. Death means
-																up civil do an offer wound of.
-															</p>
-														</div>
-														<a href="#" class="button">
-															<span class="text">View Project</span>
-															<span class="arrow"></span>
-														</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
-
-			<!--
-				Card - Blog
-			-->
-			<div class="card-inner" id="blog-card">
-				<div class="row card-container">
-
-					<!--
-						Card Wrap
-					-->
-					<div class="card-wrap col col-m-24 col-t-24 col-d-16 col-d-lg-12" data-simplebar>
-
-						<!-- Blog Image -->
-						<div class="card-image col col-m-12 col-t-12 col-d-4 col-d-lg-6" style="background-image: url(images/profile4.jpg);"></div>
-					
-						<!--
-							Inner Top
-						-->
-						<div class="content inner-top">
-							<div class="row">
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-									<div class="title-bg"><a href="https://ariseai.wordpress.com/">Check my Blog </a></div>
-								</div>
-							</div>
-						</div>
-
-						<!--
-							Blog
-						-->
-						<div class="content blog">
-							<div class="row">
-								<div class="col col-m-12 col-t-5 col-d-5 col-d-lg-5">
-
-									<!-- title -->
-									<div class="title"><span>Check out My</span><a href="https://ariseai.wordpress.com/">Blog</a></div>
-
-								</div>
-								<div class="col col-m-12 col-t-7 col-d-7 col-d-lg-7">
-
-									<!-- filters -->
-									<div class="all-blog">
-										<a href="blog.html">All Blog</a>
-									</div>
-
-								</div>
-							</div>
-
-							<!-- blog items -->
-							<div class="row">
-
-								<!-- blog item -->
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-									<div class="box-item card-box">
-										<div class="image">
-											<a href="https://ariseai.wordpress.com/2024/04/06/ollama-local/">
-												<img src="images/blog/ollama-blog.jpg" alt="" />
-												<span class="info">
-													<span class="icon la la-newspaper-o"></span>
-												</span>
-												<span class="date"><strong>20</strong>Jun</span>
-											</a>
-										</div>
-										<div class="desc">
-											<a href="https://ariseai.wordpress.com/2024/04/06/ollama-local/" class="name">OLLAMA - Goes Local !</a>
-											<div class="category">Generative AI, LLM</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- blog item -->
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-									<div class="box-item card-box">
-										<div class="image">
-											<a href="https://ariseai.wordpress.com/2024/04/06/model-naming/">
-												<img src="images/blog/ollama-model.jpg" alt="" />
-												<span class="info">
-													<span class="icon la la-newspaper-o"></span>
-												</span>
-												<span class="date"><strong>19</strong>Jun</span>
-											</a>
-										</div>
-										<div class="desc">
-											<a href="https://ariseai.wordpress.com/2024/04/06/model-naming/" class="name">Logic behind Model namings</a>
-											<div class="category">Generative AI, LLM</div>
-										</div>
-									</div>
-								</div>
-
-								<!-- blog item -->
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-									<div class="box-item card-box">
-										<div class="image">
-											<a href="https://ariseai.wordpress.com/2024/04/06/custom-model/">
-												<img src="images/blog/blog3.jpg" alt="" />
-												<span class="info">
-													<span class="icon la la-newspaper-o"></span>
-												</span>
-												<span class="date"><strong>20</strong>Jun</span>
-											</a>
-										</div>
-										<div class="desc">
-											<a href="https://ariseai.wordpress.com/2024/04/06/custom-model/" class="name">Create your own model !</a>
-											<div class="category">Generative AI, LLM</div>
-										</div>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-
-			<!--
-				Card - Contacts
-			-->
-			<div class="card-inner" id="contacts-card">
-				<div class="row card-container">
-
-					<!--
-						Card Wrap
-					-->
-					<div class="card-wrap col col-m-12 col-t-12 col-d-12 col-d-lg-12" data-simplebar>
-
-						<!-- Map -->
-						<!-- <div class="card-image col col-m-12 col-t-12 col-d-4 col-d-lg-6">
-							<div class="map" id="map"></div>
-						</div> -->
-
-						<!--
-							Inner Top
-						-->
-						<div class="content inner-top">
-							<div class="row">
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-									<div class="title-bg">Contacts</div>
-								</div>
-							</div>
-						</div>
-
-						<!--
-							Contacts Info
-						-->
-						<div class="content contacts-info">
-							<div class="row">
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-									<!-- title -->
-									<div class="title"><span>Get</span> in Touch</div>
-
-								</div>
-							</div>
-
-							<!-- contacts items -->
-							<div class="row contacts-items">
-
-								<!-- contacts item -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-									<div class="contacts-item card-box">
-										<div class="icon"><i class="la la-map-marker"></i></div>
-										<div class="name">Location</div>
-										<p>
-											Berlin, Germany.
-										</p>
-									</div>
-								</div>
-
-								<!-- contacts item -->
-								<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-									<div class="contacts-item card-box">
-										<div class="icon"><i class="la la-at"></i></div>
-										<div class="name">Email</div>
-										<p>
-										manjeetkumar53@gmail.com
-										</p>
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-						<!--
-							Contacts Form
-						-->
-						<div class="content contacts-form">
-							<div class="row">
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-									<!-- title -->
-									<div class="title"><span>Contact</span> Form</div>
-
-								</div>
-							</div>
-							<div class="row">
-								<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-
-									<!-- form -->
-									<div class="contact_form card-box">
-										<form id="cform" method="post">
-											<div class="row">
-												<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-													<div class="group-val">
-														<input type="text" name="name" placeholder="Full Name" />
-													</div>
-												</div>
-												<div class="col col-m-12 col-t-6 col-d-6 col-d-lg-6">
-													<div class="group-val">
-														<input type="text" name="email" placeholder="Email Address" />
-													</div>
-												</div>
-												<div class="col col-m-12 col-t-12 col-d-12 col-d-lg-12">
-													<div class="group-val">
-														<textarea name="message" placeholder="Your Message"></textarea>
-													</div>
-												</div>
-											</div>
-											<div class="align-left">
-												<a href="#" class="button" onclick="$('#cform').submit(); return false;">
-													<span class="text">Send Message</span>
-													<span class="icon"><i class="la la-arrow-right"></i></span>
-												</a>
-											</div>
-										</form>
-										<div class="alert-success">
-											<p>Thanks, your message is sent successfully.</p>
-										</div>
-									</div>
-
-								</div>
-							</div>
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-
-			<!--
-				Lines Grid
-			-->
-			<div class="lines-grid">
-				<div class="row">
-					<div class="col col-m-12 col-t-6 col-d-4 col-d-lg-3"></div>
-					<div class="col col-m-12 col-t-6 col-d-4 col-d-lg-3">
-						<div class="lines">
-							<div class="line-1"></div>
-							<div class="line-2" style="animation-delay: 10s;"></div>
-						</div>
-					</div>
-					<div class="col col-m-12 col-t-6 col-d-4 col-d-lg-3">
-						<div class="lines">
-							<div class="line-1"></div>
-						</div>
-					</div>
-					<div class="col col-m-0 col-t-0 col-d-0 col-d-lg-3">
-						<div class="lines">
-							<div class="line-1"></div>
-							<div class="line-2" style="animation-delay: 0s;"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-		</div>
-	</div>
-
-	<script src="js/scripts.min.js"></script>
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz2w7HUaWudHwd7AWQpCL48Qs050WOn9s"></script>
-
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <i class="fas fa-code"></i>
+                MK
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#highlights" class="nav-link">Highlights</a></li>
+                <li><a href="/blog/" class="nav-link">📝 Blog</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>
+                    Hi, I'm
+                    <span class="name" id="heroName">Manjeet Kumar</span>
+                </h1>
+                <div class="typed-text">
+                    <span id="typedOutput"></span>
+                    <span class="typed-cursor">|</span>
+                </div>
+                <p class="hero-description" id="heroDescription">
+                    Engineering Manager with 10+ years of experience in Java, Spring, Kubernetes, AWS, and Full-stack development.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Get In Touch
+                    </a>
+                    <a href="#" class="btn btn-secondary" id="downloadCV">
+                        <i class="fas fa-download"></i>
+                        Download CV
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-card">
+                    <img src="images/profile.jpg" alt="Manjeet Kumar" class="profile-image" id="profileImage">
+                    <div class="social-links" id="socialLinks">
+                        <!-- Social links will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">My <span>Skills</span></h2>
+                <p class="section-subtitle">Technologies and tools I work with</p>
+            </div>
+            <div class="skills-grid" id="skillsGrid">
+                <!-- Skills will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Work <span>Experience</span></h2>
+                <p class="section-subtitle">My professional journey</p>
+            </div>
+            <div class="timeline" id="experienceTimeline">
+                <!-- Experience will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section id="highlights">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Career <span>Highlights</span></h2>
+                <p class="section-subtitle">Key achievements and contributions</p>
+            </div>
+            <div class="highlights-grid" id="highlightsGrid">
+                <!-- Highlights will be loaded dynamically -->
+            </div>
+            <div class="section-header fade-in" style="margin-top: 4rem;">
+                <h2 class="section-title">Fun <span>Facts</span></h2>
+            </div>
+            <div class="fun-facts" id="funFactsGrid">
+                <!-- Fun facts will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Latest <span>Blog Posts</span></h2>
+                <p class="section-subtitle">Thoughts on AI, software development, and technology</p>
+            </div>
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog posts will be loaded dynamically -->
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="btn btn-primary" id="viewAllBlog">
+                    <i class="fas fa-external-link-alt"></i>
+                    View All Posts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2 class="section-title">Get In <span>Touch</span></h2>
+                <p class="section-subtitle">Let's discuss your next project</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p id="contactLocation">Berlin, Germany</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p id="contactEmail">manjeetkumar53@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Connect</h3>
+                            <div class="social-links" style="justify-content: flex-start;" id="contactSocial">
+                                <!-- Social links -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form fade-in" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-text">
+                <p>&copy; 2026 Manjeet Kumar. All rights reserved.</p>
+            </div>
+            <div class="last-updated">
+                Last updated: <span id="lastUpdated">February 2, 2026</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/app.js"></script>
 </body>
-
 </html>
