@@ -227,10 +227,20 @@ class PortfolioManager {
         skillsGrid.innerHTML = skills.map(skill => `
             <div class="skill-card fade-in">
                 <div class="skill-header">
-                    <div class="skill-name">${skill.name}</div>
-                    <div class="skill-category">${skill.category}</div>
+                    <div class="skill-icon">
+                        <i class="fas ${skill.icon || 'fa-code'}"></i>
+                    </div>
+                    <div class="skill-info">
+                        <div class="skill-name">${skill.name}</div>
+                        <div class="skill-category">${skill.category}</div>
+                    </div>
                 </div>
                 <p class="skill-description">${skill.description}</p>
+                ${skill.tags ? `
+                    <div class="skill-tags">
+                        ${skill.tags.slice(0, 4).map(tag => `<span class="skill-tag">${tag}</span>`).join('')}
+                    </div>
+                ` : ''}
                 <div class="skill-progress">
                     <div class="skill-progress-bar" data-level="${skill.level}" style="width: 0%"></div>
                 </div>
