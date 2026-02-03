@@ -174,7 +174,13 @@ class PortfolioManager {
         document.getElementById('heroName').textContent = personal.name;
         document.getElementById('heroDescription').innerHTML = personal.bio;
         document.getElementById('profileImage').src = personal.profileImage;
-        document.getElementById('downloadCV').href = personal.resumeUrl;
+        
+        // Download CV button is optional
+        const downloadBtn = document.getElementById('downloadCV');
+        if (downloadBtn && personal.resumeUrl) {
+            downloadBtn.href = personal.resumeUrl;
+        }
+        
         document.getElementById('lastUpdated').textContent = new Date(this.content.lastUpdated).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
