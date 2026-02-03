@@ -1,9 +1,13 @@
-# GitHub backend with public OAuth proxy
+# Local test mode - changes won't save to GitHub
 backend:
-  name: github
-  repo: manjeetkumar53/manjeetkumar53.github.io
-  branch: master
-  base_url: https://decap-cms-oauth.netlify.app
+  name: test-repo
+
+# For production (after OAuth is working), use:
+# backend:
+#   name: github
+#   repo: manjeetkumar53/manjeetkumar53.github.io
+#   branch: master
+#   base_url: https://decap-cms-oauth.netlify.app
 
 # Media files will be stored in the repo under images/blog
 media_folder: "images/blog"
