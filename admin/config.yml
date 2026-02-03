@@ -1,13 +1,9 @@
-# Local development mode - allows testing without GitHub OAuth
-# Comment this out and uncomment the github backend below after OAuth setup
+# GitHub backend with direct authentication (no OAuth proxy needed)
 backend:
-  name: test-repo
-
-# Production backend - uncomment after setting up GitHub OAuth
-# backend:
-#   name: github
-#   repo: manjeetkumar53/manjeetkumar53.github.io
-#   branch: master
+  name: github
+  repo: manjeetkumar53/manjeetkumar53.github.io
+  branch: master
+  auth_type: pkce
 
 # Media files will be stored in the repo under images/blog
 media_folder: "images/blog"
