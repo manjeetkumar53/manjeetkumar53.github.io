@@ -1,0 +1,18 @@
+# Backup files
+index-old-backup.html
+
+# Helper scripts (no longer needed with CMS)
+update.sh
+
+# Personal files
+*.pdf
+Manjeet Kumar CV 2025.pdf
+
+# macOS
+.DS_Store
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
