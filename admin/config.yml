@@ -1,9 +1,8 @@
-# GitHub backend with direct authentication (no OAuth proxy needed)
+# GitHub backend with OAuth
 backend:
   name: github
   repo: manjeetkumar53/manjeetkumar53.github.io
   branch: master
-  auth_type: pkce
 
 # Media files will be stored in the repo under images/blog
 media_folder: "images/blog"
