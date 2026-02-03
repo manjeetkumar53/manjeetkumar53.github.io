@@ -23,64 +23,84 @@
   },
   "skills": [
     {
-      "category": "AI & Machine Learning",
-      "name": "GenAI, LangChain, RAG, LLM Integration",
-      "description": "Building Agentic AI workflows, integrating multiple LLM providers (OpenAI, Claude, Gemini), implementing RAG pipelines and tool-calling agents for production systems.",
-      "level": 90
+      "category": "GenAI & LLM",
+      "name": "OpenAI, Claude, Gemini, Llama",
+      "icon": "fa-brain",
+      "description": "Production-grade Agentic AI systems with GPT-4/4o, Claude, Gemini, Mistral. Planner-Executor agents, Tool Calling, Memory, Structured outputs, Prompt versioning, Evaluation datasets, Tracing, Cost monitoring, Fallback strategies, HITL controls.",
+      "level": 95,
+      "tags": ["OpenAI", "Claude", "Gemini", "LangChain", "Agents", "Prompt Engineering"]
     },
     {
-      "category": "Backend Development",
-      "name": "JAVA/J2EE",
-      "description": "Working on Java/J2ee technology since 2010. Expert in designing/coding multi tier & robust systems.",
-      "level": 100
+      "category": "RAG & Vector DBs",
+      "name": "Embeddings, Chunking, Retrieval",
+      "icon": "fa-database",
+      "description": "End-to-end RAG pipelines: Embeddings, Chunking strategies, Retrieval optimization, Reranking. Vector databases: PGVector, Pinecone, Weaviate, FAISS.",
+      "level": 92,
+      "tags": ["RAG", "Vector DB", "Embeddings", "Pinecone", "FAISS"]
     },
     {
-      "category": "Frameworks",
-      "name": "Spring Framework",
-      "description": "Well versed in Spring Framework & its various flavours e.g. Spring boot, cloud & Microservices.",
-      "level": 95
+      "category": "ML & Optimization",
+      "name": "Scikit-learn, XGBoost, LightGBM",
+      "icon": "fa-chart-line",
+      "description": "Feature Engineering, Batch + Real-Time Inference, Hybrid ML + LLM Decision Engines. Production ML pipelines with monitoring and A/B testing.",
+      "level": 88,
+      "tags": ["Scikit-learn", "XGBoost", "Feature Engineering", "ML Ops"]
     },
     {
-      "category": "API Development",
-      "name": "Web Services",
-      "description": "Expert in Designing & Developing webservices using XML, XSD & REST API.",
-      "level": 95
+      "category": "Backend & Architecture",
+      "name": "Java, Python, Node.js, Spring Boot",
+      "icon": "fa-server",
+      "description": "14+ years: Java/Spring Boot, Python/FastAPI, Node.js/TypeScript. Microservices, Event-Driven Systems, DDD, REST APIs, Security hardening, Performance optimization.",
+      "level": 98,
+      "tags": ["Java", "Spring Boot", "Python", "FastAPI", "Microservices", "DDD"]
     },
     {
-      "category": "Database",
-      "name": "Oracle & MySQL",
-      "description": "Well versed in writing CRUD queries, Views, Procedures & functions in Oracle & MySQL.",
-      "level": 95
+      "category": "Cloud & Kubernetes",
+      "name": "AWS, GCP, Azure, Docker, K8s",
+      "icon": "fa-cloud",
+      "description": "Multi-cloud deployments (AWS, GCP, Azure). Kubernetes orchestration, Docker containerization, Terraform IaC, ArgoCD GitOps, Observability, Cost optimization.",
+      "level": 92,
+      "tags": ["AWS", "Kubernetes", "Docker", "Terraform", "ArgoCD"]
     },
     {
-      "category": "Cloud",
-      "name": "AWS & GCP",
-      "description": "Experience with cloud infrastructure, deployment, and serverless architectures.",
-      "level": 90
+      "category": "Data & Streaming",
+      "name": "Kafka, BigQuery, Redis, ELK",
+      "icon": "fa-stream",
+      "description": "Event streaming with Kafka, Data warehousing (BigQuery), Caching (Redis), Logging/Monitoring (ELK), Airflow orchestration. Real-time data pipelines.",
+      "level": 90,
+      "tags": ["Kafka", "BigQuery", "Redis", "Elasticsearch", "Airflow"]
     },
     {
-      "category": "DevOps",
-      "name": "Kubernetes, Docker & ArgoCD",
-      "description": "Container orchestration, CI/CD pipelines, and infrastructure as code.",
-      "level": 90
+      "category": "Databases",
+      "name": "PostgreSQL, MySQL, MongoDB",
+      "icon": "fa-database",
+      "description": "RDBMS (PostgreSQL, MySQL, Oracle), NoSQL (MongoDB, DynamoDB), Search (Elasticsearch), Data modeling, Query optimization, Replication, Sharding.",
+      "level": 95,
+      "tags": ["PostgreSQL", "MySQL", "MongoDB", "Elasticsearch"]
     },
     {
-      "category": "Data & Messaging",
-      "name": "Kafka, Redis, Elasticsearch",
-      "description": "Experience with message queues, caching, and search infrastructure.",
-      "level": 85
+      "category": "Frontend & Mobile",
+      "name": "React, Next.js, React Native",
+      "icon": "fa-mobile-screen",
+      "description": "React/Next.js with TypeScript, Material UI. React Native + Expo SDK 52 for cross-platform mobile. Modern JavaScript/TypeScript, Responsive design.",
+      "level": 85,
+      "tags": ["React", "Next.js", "React Native", "TypeScript", "Expo"]
     },
     {
-      "category": "Frontend",
-      "name": "HTML, CSS, JavaScript & jQuery",
-      "description": "Skilled in modern web development. Worked on open source projects using Node.js.",
-      "level": 85
+      "category": "Model Serving",
+      "name": "vLLM, Ollama, API Inference",
+      "icon": "fa-microchip",
+      "description": "Model deployment: vLLM for high-throughput serving, Ollama for local inference, API-based inference with streaming. Multi-model routing for cost/latency optimization.",
+      "level": 87,
+      "tags": ["vLLM", "Ollama", "Model Serving", "Inference"]
     },
     {
-      "category": "Mobile Development",
-      "name": "React Native, Expo SDK",
-      "description": "Led migration to React Native 0.76+ and Expo SDK 52, modernizing mobile applications with improved stability and development velocity.",
-      "level": 85
+      "category": "Leadership",
+      "name": "Team Building & Mentoring",
+      "icon": "fa-users",
+      "description": "Scaled teams 0→1, Hired 50+ engineers, Mentored 30+ developers. OKRs, Scrum/Kanban, Incident Management, Stakeholder alignment. Technical strategy & roadmap ownership.",
+      "level": 95,
+      "tags": ["Leadership", "Hiring", "Mentoring", "OKRs", "Agile"]
     }
   ],
   "experience": [
