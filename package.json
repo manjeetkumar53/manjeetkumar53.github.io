@@ -1,0 +1,15 @@
+{
+  "name": "manjeetkumar53.github.io",
+  "version": "1.0.0",
+  "description": "Portfolio Website - Manjeet Kumar",
+  "main": "index.html",
+  "scripts": {
+    "dev": "browser-sync start --server --files '**/*.html, **/*.css, **/*.js' --port 3000 --no-notify"
+  },
+  "keywords": [],
+  "author": "Manjeet Kumar",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^3.0.0"
+  }
+}

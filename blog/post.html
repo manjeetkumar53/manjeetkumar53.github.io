@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,47 +8,54 @@
     <meta name="description" id="page-description" content="">
     <meta name="keywords" id="page-keywords" content="">
     <meta name="author" content="Manjeet Kumar">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" id="og-url" content="">
     <meta property="og:title" id="og-title" content="">
     <meta property="og:description" id="og-description" content="">
     <meta property="og:image" id="og-image" content="">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" id="twitter-url" content="">
     <meta property="twitter:title" id="twitter-title" content="">
     <meta property="twitter:description" id="twitter-description" content="">
     <meta property="twitter:image" id="twitter-image" content="">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="/images/favicons/favicon.ico">
-    
+
     <!-- Syntax Highlighting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
-    
+
     <style>
         :root {
             --primary: #10b981;
             --primary-dark: #059669;
             --primary-light: #34d399;
-            --dark: #0f172a;
-            --dark-light: #1e293b;
-            --dark-lighter: #334155;
-            --text: #e2e8f0;
-            --text-secondary: #cbd5e1;
+            --dark: #020617;
+            --dark-light: #0f172a;
+            --dark-lighter: #1e293b;
+            --text: #f1f5f9;
+            --text-secondary: #94a3b8;
             --accent: #3b82f6;
-            --code-bg: #1e293b;
+            --code-bg: #030712;
+            --alert-note: #3b82f6;
+            --alert-tip: #10b981;
+            --alert-important: #8b5cf6;
+            --alert-warning: #f59e0b;
+            --alert-caution: #ef4444;
         }
 
         * {
@@ -89,6 +97,11 @@
             z-index: 1000;
             border-bottom: 1px solid rgba(148, 163, 184, 0.1);
             margin-top: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        nav.nav-hidden {
+            transform: translateY(-110%);
         }
 
         .nav-container {
@@ -253,8 +266,14 @@
         }
 
         .article-content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 1.8rem;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+        }
+
+        .article-content strong {
+            color: var(--text);
+            font-weight: 600;
         }
 
         .article-content a {
@@ -295,11 +314,70 @@
 
         .article-content pre {
             background: var(--code-bg);
-            border-radius: 0.5rem;
+            border-bottom-left-radius: 0.75rem;
+            border-bottom-right-radius: 0.75rem;
             padding: 1.5rem;
             overflow-x: auto;
-            margin: 2rem 0;
+            margin: 0;
             border: 1px solid var(--dark-lighter);
+            border-top: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Code Header - Terminal Style */
+        .code-header {
+            background: #111827;
+            border: 1px solid var(--dark-lighter);
+            border-top-left-radius: 0.75rem;
+            border-top-right-radius: 0.75rem;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .code-controls {
+            display: flex;
+            gap: 0.4rem;
+        }
+
+        .code-controls span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .control-red {
+            background: #ef4444;
+        }
+
+        .control-yellow {
+            background: #f59e0b;
+        }
+
+        .control-green {
+            background: #10b981;
+        }
+
+        .code-lang {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .code-lang i {
+            color: var(--primary);
         }
 
         .article-content code {
@@ -312,11 +390,164 @@
             padding: 0;
         }
 
-        .article-content :not(pre) > code {
-            background: var(--dark-light);
+        .article-content :not(pre)>code {
+            background: rgba(16, 185, 129, 0.1);
             padding: 0.2rem 0.4rem;
             border-radius: 0.25rem;
             color: var(--primary-light);
+            font-weight: 500;
+        }
+
+        /* Alerts/Callouts */
+        .article-alert {
+            margin: 2rem 0;
+            padding: 1.25rem 1.5rem;
+            border-radius: 0.75rem;
+            border-left: 4px solid;
+            background: rgba(30, 41, 59, 0.5);
+        }
+
+        .alert-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-alert.note {
+            border-left-color: var(--alert-note);
+        }
+
+        .article-alert.note .alert-title {
+            color: var(--alert-note);
+        }
+
+        .article-alert.tip {
+            border-left-color: var(--alert-tip);
+        }
+
+        .article-alert.tip .alert-title {
+            color: var(--alert-tip);
+        }
+
+        .article-alert.important {
+            border-left-color: var(--alert-important);
+        }
+
+        .article-alert.important .alert-title {
+            color: var(--alert-important);
+        }
+
+        .article-alert.warning {
+            border-left-color: var(--alert-warning);
+        }
+
+        .article-alert.warning .alert-title {
+            color: var(--alert-warning);
+        }
+
+        .article-alert.caution {
+            border-left-color: var(--alert-caution);
+        }
+
+        .article-alert.caution .alert-title {
+            color: var(--alert-caution);
+        }
+
+        .alert-content {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .alert-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Reader Utilities */
+        .code-wrapper {
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .code-wrapper pre {
+            margin: 0 !important;
+        }
+
+        .copy-btn {
+            background: transparent;
+            border: 1px solid var(--dark-lighter);
+            color: var(--text-secondary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.3rem;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .code-wrapper:hover .copy-btn {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .copy-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--dark-light);
+        }
+
+        .heading-anchor {
+            margin-left: -1.5rem;
+            padding-right: 0.5rem;
+            color: var(--primary);
+            opacity: 0;
+            transition: opacity 0.2s;
+            text-decoration: none !important;
+            font-weight: 400;
+        }
+
+        h2:hover .heading-anchor,
+        h3:hover .heading-anchor {
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            cursor: zoom-out;
+        }
+
+        .lightbox-overlay img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 0.5rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            cursor: default;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: var(--text);
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         /* Sidebar - Social Share */
@@ -569,10 +800,13 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Reading Progress Bar -->
     <div class="reading-progress" id="readingProgress"></div>
@@ -643,11 +877,16 @@
                 <img src="/images/profile.jpg" alt="Manjeet Kumar" class="author-image">
                 <div class="author-info">
                     <h3>Manjeet Kumar</h3>
-                    <p>Engineering Manager with 14+ years of experience in building scalable systems and leading high-performance teams. Currently leading engineering at ContainerGrid, working with GenAI, LangChain, and cloud-native technologies.</p>
+                    <p>Engineering Manager with 14+ years of experience in building scalable systems and leading
+                        high-performance teams. Currently leading engineering at ContainerGrid, working with GenAI,
+                        LangChain, and cloud-native technologies.</p>
                     <div class="author-links">
-                        <a href="https://github.com/manjeetkumar53" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/manjeet-kumar-31963020/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://stackoverflow.com/users/1513779/alex" target="_blank" rel="noopener"><i class="fab fa-stack-overflow"></i></a>
+                        <a href="https://github.com/manjeetkumar53" target="_blank" rel="noopener"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/manjeet-kumar-31963020/" target="_blank" rel="noopener"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://stackoverflow.com/users/1513779/alex" target="_blank" rel="noopener"><i
+                                class="fab fa-stack-overflow"></i></a>
                     </div>
                 </div>
             </div>
@@ -656,6 +895,21 @@
             <div class="related-posts">
                 <h2>Related Posts</h2>
                 <div class="related-grid" id="relatedPosts"></div>
+            </div>
+
+            <!-- Comments & Likes (Giscus) -->
+            <div class="comments-section"
+                style="margin-top: 5rem; padding-top: 3rem; border-top: 2px solid var(--dark-lighter);">
+                <div class="section-badge"
+                    style="display: inline-block; background: rgba(16, 185, 129, 0.1); color: var(--primary); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600; margin-bottom: 2rem;">
+                    <i class="fas fa-comments"></i> DISCUSSIONS & REACTIONS
+                </div>
+                <script src="https://giscus.app/client.js" data-repo="manjeetkumar53/manjeetkumar53.github.io"
+                    data-repo-id="R_kgDON7uKxQ" data-category="Announcements" data-category-id="DIC_kwDON7uKxc4Cm_F_"
+                    data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
+                    data-input-position="top" data-theme="transparent_dark" data-lang="en" data-loading="lazy"
+                    crossorigin="anonymous" async>
+                    </script>
             </div>
         </div>
     </div>
@@ -668,7 +922,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
-    
+
     <script src="/blog/blog-post.js"></script>
 </body>
+
 </html>

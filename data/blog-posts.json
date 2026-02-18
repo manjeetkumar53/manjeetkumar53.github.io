@@ -1,15 +1,54 @@
 [
   {
-    "slug": "2026-02-03-welcome-to-my-blog",
-    "title": "Welcome to My New Blog!",
-    "date": "2026-02-03T10:00:00.000Z",
+    "slug": "2026-02-06-practical-guide-to-claude-agent-teams",
+    "title": "Practical Guide to Claude Agent Teams",
+    "date": "2026-02-06T12:05:00",
     "author": "Manjeet Kumar",
-    "category": "Career",
-    "tags": ["blogging", "portfolio", "personal"],
+    "category": "AI Tools",
+    "tags": [
+      "Claude",
+      "AI Agents",
+      "Claude Code",
+      "Productivity"
+    ],
     "image": "",
-    "excerpt": "I'm excited to launch my engineering blog where I'll share insights about GenAI, Software Architecture, Leadership, and DevOps. Join me as I document my journey building scalable systems and leading engineering teams.",
+    "excerpt": "Learn how to use Claude Agent Teams to coordinate multiple AI instances for parallel research, debugging, and modular development locally.",
     "featured": true,
     "draft": false,
-    "readingTime": 8
+    "readingTime": 2
+  },
+  {
+    "slug": "2026-02-06-the-future-of-agentic-ai",
+    "title": "The Future of Agentic AI",
+    "date": "2026-02-06T11:57:00",
+    "author": "Manjeet Kumar",
+    "category": "GenAI",
+    "tags": [
+      "AI",
+      "Tech",
+      "Agents"
+    ],
+    "image": "",
+    "excerpt": "Exploring the shift from chatbots to autonomous agents that can plan, reason, and execute complex workflows.",
+    "featured": true,
+    "draft": false,
+    "readingTime": 1
+  },
+  {
+    "slug": "2026-02-03-welcome-to-my-blog",
+    "title": "Welcome to My New Blog!",
+    "date": "2026-02-03 10:00:00",
+    "author": "Manjeet Kumar",
+    "category": "Career",
+    "tags": [
+      "blogging",
+      "portfolio",
+      "personal"
+    ],
+    "image": "",
+    "excerpt": "I'm excited to launch my new blog where I'll share insights on AI, software architecture, and engineering leadership. Join me on this journey!",
+    "featured": true,
+    "draft": false,
+    "readingTime": 2
   }
 ]

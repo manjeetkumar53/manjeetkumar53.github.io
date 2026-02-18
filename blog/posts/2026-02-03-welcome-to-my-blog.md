@@ -9,7 +9,7 @@ excerpt: "I'm excited to launch my new blog where I'll share insights on AI, sof
 featured: true
 draft: false
 seoTitle: "Welcome to Manjeet Kumar's Engineering Blog"
-seoDescription: "Join me as I share insights on GenAI, software architecture, and engineering leadership. First post on my new blog powered by Decap CMS."
+seoDescription: "Join me as I share insights on GenAI, software architecture, and engineering leadership. First post on my new high-performance, Markdown-powered blog."
 ---
 
 # Welcome to My Blog!
@@ -108,7 +108,7 @@ Don't miss any posts! RSS feed coming soon.
 
 ## Let's Build Together
 
-This blog is powered by **Decap CMS** and **GitHub Pages** - completely free and open source. I'll write a detailed post about the setup soon.
+This blog is powered by **Markdown** and **GitHub Pages** - completely free and open source. I've built a custom management script to keep things lightning fast.
 
 Thanks for reading, and welcome to my blog! 🎉
 

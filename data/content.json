@@ -28,7 +28,14 @@
       "icon": "fa-brain",
       "description": "Production-grade Agentic AI systems with GPT-4/4o, Claude, Gemini, Mistral. Planner-Executor agents, Tool Calling, Memory, Structured outputs, Prompt versioning, Evaluation datasets, Tracing, Cost monitoring, Fallback strategies, HITL controls.",
       "level": 95,
-      "tags": ["OpenAI", "Claude", "Gemini", "LangChain", "Agents", "Prompt Engineering"]
+      "tags": [
+        "OpenAI",
+        "Claude",
+        "Gemini",
+        "LangChain",
+        "Agents",
+        "Prompt Engineering"
+      ]
     },
     {
       "category": "RAG & Vector DBs",
@@ -36,7 +43,13 @@
       "icon": "fa-database",
       "description": "End-to-end RAG pipelines: Embeddings, Chunking strategies, Retrieval optimization, Reranking. Vector databases: PGVector, Pinecone, Weaviate, FAISS.",
       "level": 92,
-      "tags": ["RAG", "Vector DB", "Embeddings", "Pinecone", "FAISS"]
+      "tags": [
+        "RAG",
+        "Vector DB",
+        "Embeddings",
+        "Pinecone",
+        "FAISS"
+      ]
     },
     {
       "category": "ML & Optimization",
@@ -44,7 +57,12 @@
       "icon": "fa-chart-line",
       "description": "Feature Engineering, Batch + Real-Time Inference, Hybrid ML + LLM Decision Engines. Production ML pipelines with monitoring and A/B testing.",
       "level": 88,
-      "tags": ["Scikit-learn", "XGBoost", "Feature Engineering", "ML Ops"]
+      "tags": [
+        "Scikit-learn",
+        "XGBoost",
+        "Feature Engineering",
+        "ML Ops"
+      ]
     },
     {
       "category": "Backend & Architecture",
@@ -52,7 +70,14 @@
       "icon": "fa-server",
       "description": "14+ years: Java/Spring Boot, Python/FastAPI, Node.js/TypeScript. Microservices, Event-Driven Systems, DDD, REST APIs, Security hardening, Performance optimization.",
       "level": 98,
-      "tags": ["Java", "Spring Boot", "Python", "FastAPI", "Microservices", "DDD"]
+      "tags": [
+        "Java",
+        "Spring Boot",
+        "Python",
+        "FastAPI",
+        "Microservices",
+        "DDD"
+      ]
     },
     {
       "category": "Cloud & Kubernetes",
@@ -60,7 +85,13 @@
       "icon": "fa-cloud",
       "description": "Multi-cloud deployments (AWS, GCP, Azure). Kubernetes orchestration, Docker containerization, Terraform IaC, ArgoCD GitOps, Observability, Cost optimization.",
       "level": 92,
-      "tags": ["AWS", "Kubernetes", "Docker", "Terraform", "ArgoCD"]
+      "tags": [
+        "AWS",
+        "Kubernetes",
+        "Docker",
+        "Terraform",
+        "ArgoCD"
+      ]
     },
     {
       "category": "Data & Streaming",
@@ -68,7 +99,13 @@
       "icon": "fa-stream",
       "description": "Event streaming with Kafka, Data warehousing (BigQuery), Caching (Redis), Logging/Monitoring (ELK), Airflow orchestration. Real-time data pipelines.",
       "level": 90,
-      "tags": ["Kafka", "BigQuery", "Redis", "Elasticsearch", "Airflow"]
+      "tags": [
+        "Kafka",
+        "BigQuery",
+        "Redis",
+        "Elasticsearch",
+        "Airflow"
+      ]
     },
     {
       "category": "Databases",
@@ -76,7 +113,12 @@
       "icon": "fa-database",
       "description": "RDBMS (PostgreSQL, MySQL, Oracle), NoSQL (MongoDB, DynamoDB), Search (Elasticsearch), Data modeling, Query optimization, Replication, Sharding.",
       "level": 95,
-      "tags": ["PostgreSQL", "MySQL", "MongoDB", "Elasticsearch"]
+      "tags": [
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB",
+        "Elasticsearch"
+      ]
     },
     {
       "category": "Frontend & Mobile",
@@ -84,7 +126,13 @@
       "icon": "fa-mobile-screen",
       "description": "React/Next.js with TypeScript, Material UI. React Native + Expo SDK 52 for cross-platform mobile. Modern JavaScript/TypeScript, Responsive design.",
       "level": 85,
-      "tags": ["React", "Next.js", "React Native", "TypeScript", "Expo"]
+      "tags": [
+        "React",
+        "Next.js",
+        "React Native",
+        "TypeScript",
+        "Expo"
+      ]
     },
     {
       "category": "Model Serving",
@@ -92,15 +140,26 @@
       "icon": "fa-microchip",
       "description": "Model deployment: vLLM for high-throughput serving, Ollama for local inference, API-based inference with streaming. Multi-model routing for cost/latency optimization.",
       "level": 87,
-      "tags": ["vLLM", "Ollama", "Model Serving", "Inference"]
+      "tags": [
+        "vLLM",
+        "Ollama",
+        "Model Serving",
+        "Inference"
+      ]
     },
     {
       "category": "Leadership",
       "name": "Team Building & Mentoring",
       "icon": "fa-users",
-      "description": "Scaled teams 0→1, Hired 50+ engineers, Mentored 30+ developers. OKRs, Scrum/Kanban, Incident Management, Stakeholder alignment. Technical strategy & roadmap ownership.",
+      "description": "Scaled teams 0\u21921, Hired 50+ engineers, Mentored 30+ developers. OKRs, Scrum/Kanban, Incident Management, Stakeholder alignment. Technical strategy & roadmap ownership.",
       "level": 95,
-      "tags": ["Leadership", "Hiring", "Mentoring", "OKRs", "Agile"]
+      "tags": [
+        "Leadership",
+        "Hiring",
+        "Mentoring",
+        "OKRs",
+        "Agile"
+      ]
     }
   ],
   "experience": [
@@ -110,7 +169,19 @@
       "position": "Engineering Manager",
       "period": "February 2024 - Present",
       "teamSize": "Engineering team from inception",
-      "techStack": ["React Native", "Expo SDK 52", "LangChain", "RAG", "OpenAI", "Claude", "Gemini", "Microservices", "Event-Driven Architecture", "GenAI", "ML/AI"],
+      "techStack": [
+        "React Native",
+        "Expo SDK 52",
+        "LangChain",
+        "RAG",
+        "OpenAI",
+        "Claude",
+        "Gemini",
+        "Microservices",
+        "Event-Driven Architecture",
+        "GenAI",
+        "ML/AI"
+      ],
       "responsibilities": [
         "Leading engineering strategy for ContainerGrid's AI-powered Circular Economy platform, enabling intelligent waste management, sustainable material recovery, and end-to-end product lifecycle traceability",
         "Owned end-to-end engineering strategy and platform architecture for AI-driven Circular Economy product, delivering GenAI-powered insights for operational and sustainability decisions",
@@ -134,7 +205,15 @@
       "position": "Engineering Manager",
       "period": "June 2023 - February 2024",
       "teamSize": "Cross-functional teams",
-      "techStack": ["Java", "Kotlin", "Spring Boot", "Microservices", "Kubernetes", "AWS", "Docker"],
+      "techStack": [
+        "Java",
+        "Kotlin",
+        "Spring Boot",
+        "Microservices",
+        "Kubernetes",
+        "AWS",
+        "Docker"
+      ],
       "responsibilities": [
         "Cross-Functional Team Leadership: Orchestrated and led cross-functional teams across the entire application lifecycle, from inception and design through development, rigorous testing, deployment, and ongoing maintenance",
         "Strategic Architectural Decision-Making: Empowered team in making strategic architectural decisions to enhance scalability, performance, and security of applications",
@@ -156,7 +235,17 @@
       "position": "Engineering Manager - Fintech Risk Tribe",
       "period": "November 2021 - April 2023",
       "teamSize": "6 Backend Engineers",
-      "techStack": ["Java", "Kotlin", "Spring Boot", "PostgreSQL", "Docker", "GitHub", "AWS", "Kubernetes", "ArgoCD"],
+      "techStack": [
+        "Java",
+        "Kotlin",
+        "Spring Boot",
+        "PostgreSQL",
+        "Docker",
+        "GitHub",
+        "AWS",
+        "Kubernetes",
+        "ArgoCD"
+      ],
       "responsibilities": [
         "Built Anti-Fraud solutions for Wallet and Payment applications in high-scale fintech environment",
         "Designed and implemented cutting-edge applications transforming the delivery industry",
@@ -177,7 +266,19 @@
       "position": "Engineering Manager",
       "period": "December 2019 - November 2021",
       "teamSize": "11 Engineers (7 SE & 3 QA + 1 SE & 1 QA in 2 teams)",
-      "techStack": ["Java", "Spring", "Spring Boot", "Oracle", "MySQL", "PHP", "WordPress", "Jenkins", "ELK Stack", "Kafka", "Elasticsearch"],
+      "techStack": [
+        "Java",
+        "Spring",
+        "Spring Boot",
+        "Oracle",
+        "MySQL",
+        "PHP",
+        "WordPress",
+        "Jenkins",
+        "ELK Stack",
+        "Kafka",
+        "Elasticsearch"
+      ],
       "responsibilities": [
         "Led and aligned engineering teams with organization's goals",
         "Prioritized and delegated tasks through Sprint planning (Agile/Scrum)",
@@ -201,7 +302,12 @@
       "location": "Noida, India",
       "position": "Technical Architect",
       "period": "April 2019 - December 2019",
-      "techStack": ["Java", "Spring Boot", "Oracle", "Microservices Architecture"],
+      "techStack": [
+        "Java",
+        "Spring Boot",
+        "Oracle",
+        "Microservices Architecture"
+      ],
       "responsibilities": [
         "Analyzed requirements of large systems and broke them into manageable units",
         "Researched available & incoming products for project suitability",
@@ -219,7 +325,16 @@
       "location": "Noida, India",
       "position": "Senior Team Lead",
       "period": "January 2017 - April 2019",
-      "techStack": ["Java", "Spring", "Angular", "jQuery", "Elasticsearch", "Machine Learning", "Service Workers", "One Signal API"],
+      "techStack": [
+        "Java",
+        "Spring",
+        "Angular",
+        "jQuery",
+        "Elasticsearch",
+        "Machine Learning",
+        "Service Workers",
+        "One Signal API"
+      ],
       "responsibilities": [
         "Coordinated with team for Sprint deliveries using JIRA",
         "Prepared sprint demos showcasing achievements",
@@ -240,7 +355,15 @@
       "location": "Noida, India",
       "position": "Team Lead / Java Developer",
       "period": "January 2012 - December 2017",
-      "techStack": ["Java", "J2EE", "Oracle", "PL/SQL", "REST APIs", "JSP", "Servlets"],
+      "techStack": [
+        "Java",
+        "J2EE",
+        "Oracle",
+        "PL/SQL",
+        "REST APIs",
+        "JSP",
+        "Servlets"
+      ],
       "responsibilities": [
         "Handled Development & QA team",
         "Developed and re-engineered various eProcurement modules",
@@ -347,34 +470,89 @@
     }
   ],
   "funFacts": [
-    { "icon": "la-calendar", "value": "14+", "label": "Years of Experience" },
-    { "icon": "la-trophy", "value": "5", "label": "Awards Won" },
-    { "icon": "la-lightbulb-o", "value": "75+", "label": "Projects Completed" },
-    { "icon": "la-book", "value": "50+", "label": "Books Read" },
-    { "icon": "la-code", "value": "1M+", "label": "Lines of Code" },
-    { "icon": "la-users", "value": "30+", "label": "Engineers Mentored" }
+    {
+      "icon": "la-calendar",
+      "value": "14+",
+      "label": "Years of Experience"
+    },
+    {
+      "icon": "la-trophy",
+      "value": "5",
+      "label": "Awards Won"
+    },
+    {
+      "icon": "la-lightbulb-o",
+      "value": "75+",
+      "label": "Projects Completed"
+    },
+    {
+      "icon": "la-book",
+      "value": "50+",
+      "label": "Books Read"
+    },
+    {
+      "icon": "la-code",
+      "value": "1M+",
+      "label": "Lines of Code"
+    },
+    {
+      "icon": "la-users",
+      "value": "30+",
+      "label": "Engineers Mentored"
+    }
   ],
   "blogPosts": [
     {
-      "title": "OLLAMA - Goes Local!",
-      "category": "Generative AI, LLM",
+      "slug": "2026-02-06-practical-guide-to-claude-agent-teams",
+      "title": "Practical Guide to Claude Agent Teams",
+      "date": "2026-02-06T12:05:00",
+      "author": "Manjeet Kumar",
+      "category": "AI Tools",
+      "tags": [
+        "Claude",
+        "AI Agents",
+        "Claude Code",
+        "Productivity"
+      ],
       "image": "",
-      "url": "https://ariseai.wordpress.com/2024/04/06/ollama-local/",
-      "date": "2024-06-20"
+      "excerpt": "Learn how to use Claude Agent Teams to coordinate multiple AI instances for parallel research, debugging, and modular development locally.",
+      "featured": true,
+      "draft": false,
+      "readingTime": 2
     },
     {
-      "title": "Logic behind Model namings",
-      "category": "Generative AI, LLM",
+      "slug": "2026-02-06-the-future-of-agentic-ai",
+      "title": "The Future of Agentic AI",
+      "date": "2026-02-06T11:57:00",
+      "author": "Manjeet Kumar",
+      "category": "GenAI",
+      "tags": [
+        "AI",
+        "Tech",
+        "Agents"
+      ],
       "image": "",
-      "url": "https://ariseai.wordpress.com/2024/04/06/model-naming/",
-      "date": "2024-06-19"
+      "excerpt": "Exploring the shift from chatbots to autonomous agents that can plan, reason, and execute complex workflows.",
+      "featured": true,
+      "draft": false,
+      "readingTime": 1
     },
     {
-      "title": "Create your own model!",
-      "category": "Generative AI, LLM",
+      "slug": "2026-02-03-welcome-to-my-blog",
+      "title": "Welcome to My New Blog!",
+      "date": "2026-02-03 10:00:00",
+      "author": "Manjeet Kumar",
+      "category": "Career",
+      "tags": [
+        "blogging",
+        "portfolio",
+        "personal"
+      ],
       "image": "",
-      "url": "https://ariseai.wordpress.com/2024/04/06/custom-model/",
-      "date": "2024-06-20"
+      "excerpt": "I'm excited to launch my new blog where I'll share insights on AI, software architecture, and engineering leadership. Join me on this journey!",
+      "featured": true,
+      "draft": false,
+      "readingTime": 2
     }
   ],
   "lastUpdated": "2026-02-02"

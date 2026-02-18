@@ -14,35 +14,29 @@ Modern, responsive portfolio website with easy content management system.
 - 🎯 **Data-Driven** - All content managed through JSON
 - 🌙 **Dark Theme** - Easy on the eyes, professional look
 
-## 🚀 Quick Start
-
-### 1. Update Content Daily
+### 1. Create a New Post
 ```bash
-# Edit this file to update your website:
-data/content.json
+# Locally:
+python3 manage_blog.py new "Amazing New Post"
+
+# OR via GitHub Web:
+Create a .md file in blog/posts/
 ```
 
-### 2. Preview Changes
+### 2. Write & Push
+Write your content in the Markdown file and push to GitHub.
 ```bash
-# Start local server
-python3 -m http.server
-
-# Open browser to:
-http://localhost:8000
+git add . && git commit -m "New post" && git push
 ```
 
-### 3. Deploy to GitHub Pages
-```bash
-# Quick deploy
-git add .
-git commit -m "Update content"
-git push origin master
-```
+### 3. Automatic Indexing & Deployment
+On every push, a **GitHub Action** automatically:
+- Indexes your new posts.
+- Updates search indices and portfolio cards.
+- Triggers your Netlify and GitHub Pages deployments.
 
-Or use the helper script:
-```bash
-./update.sh
-```
+> [!TIP]
+> You no longer need to run any indexing scripts manually before pushing! Just focus on writing.
 
 ## 📝 Content Management
 
@@ -103,10 +97,17 @@ manjeetkumar53.github.io/
 
 ## 🎯 Usage
 
-### Daily Updates (2 minutes)
-1. Open `data/content.json`
-2. Update relevant section
-3. Save and refresh browser
+### Local Development
+To preview the site locally with live reloading:
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+The site will be available at `http://localhost:3000`.
 
 ### Weekly Maintenance
 - Update fun facts numbers

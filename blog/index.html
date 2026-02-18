@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engineering Insights - Blog by Manjeet Kumar</title>
     <meta name="description" content="Thoughts on AI, software architecture, and engineering leadership">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Favicon -->
     <link rel="shortcut icon" href="/images/favicons/favicon.ico">
-    
+
     <style>
         :root {
             --primary: #10b981;
@@ -51,6 +54,11 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        nav.nav-hidden {
+            transform: translateY(-100%);
         }
 
         .nav-container {
@@ -182,8 +190,8 @@
 
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1rem;
             margin-bottom: 4rem;
         }
 
@@ -207,12 +215,12 @@
 
         .blog-card-image {
             width: 100%;
-            height: 220px;
+            height: 120px;
             object-fit: cover;
         }
 
         .blog-card-content {
-            padding: 1.5rem;
+            padding: 1rem;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -227,16 +235,27 @@
         }
 
         .blog-card-title {
-            font-size: 1.35rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             line-height: 1.3;
+            display: -webkit-box;
+            line-clamp: 2;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .blog-card-excerpt {
+            font-size: 0.85rem;
             color: var(--text-secondary);
             margin-bottom: 1rem;
             flex: 1;
+            display: -webkit-box;
+            line-clamp: 2;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .blog-card-meta {
@@ -322,7 +341,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         /* Responsive */
@@ -342,6 +363,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -409,6 +431,9 @@
         <div class="pagination" id="pagination"></div>
     </div>
 
+    <!-- Fuse.js for Search -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
     <script>
         // Blog Index Manager
         class BlogIndex {
@@ -416,49 +441,67 @@
                 this.allPosts = [];
                 this.filteredPosts = [];
                 this.currentPage = 1;
-                this.postsPerPage = 12;
+                this.postsPerPage = 24;
                 this.currentCategory = 'all';
                 this.searchQuery = '';
-                
+                this.fuse = null;
+
                 this.init();
             }
 
             async init() {
                 await this.loadPosts();
                 this.setupEventListeners();
+                this.setupSmartHeader();
                 this.render();
+            }
+
+            setupSmartHeader() {
+                const nav = document.querySelector('nav');
+                let lastScroll = 0;
+
+                window.addEventListener('scroll', () => {
+                    const currentScroll = window.pageYOffset;
+                    if (currentScroll <= 0) {
+                        nav.classList.remove('nav-hidden');
+                        return;
+                    }
+
+                    if (currentScroll > lastScroll && !nav.classList.contains('nav-hidden') && currentScroll > 200) {
+                        nav.classList.add('nav-hidden');
+                    } else if (currentScroll < lastScroll && nav.classList.contains('nav-hidden')) {
+                        nav.classList.remove('nav-hidden');
+                    }
+                    lastScroll = currentScroll;
+                });
             }
 
             async loadPosts() {
                 try {
-                    // In production, this would load from a generated index
-                    // For now, we'll manually scan the posts folder
-                    const posts = await this.fetchAllPosts();
+                    const response = await fetch('/data/blog-posts.json');
+                    if (!response.ok) throw new Error('Failed to fetch posts');
+                    const posts = await response.json();
+
                     this.allPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
                     this.filteredPosts = [...this.allPosts];
+
+                    // Initialize Fuse.js
+                    const options = {
+                        keys: [
+                            { name: 'title', weight: 0.7 },
+                            { name: 'tags', weight: 0.5 },
+                            { name: 'category', weight: 0.3 },
+                            { name: 'excerpt', weight: 0.2 }
+                        ],
+                        threshold: 0.4,
+                        includeMatches: true
+                    };
+                    this.fuse = new Fuse(this.allPosts, options);
+
                 } catch (error) {
                     console.error('Error loading posts:', error);
                     this.showError();
                 }
-            }
-
-            async fetchAllPosts() {
-                // This function would ideally read from a generated blog-posts.json
-                // For now, return sample data that includes our welcome post
-                return [
-                    {
-                        slug: '2026-02-03-welcome-to-my-blog',
-                        title: 'Welcome to My New Blog!',
-                        date: '2026-02-03',
-                        category: 'Career',
-                        tags: ['blogging', 'portfolio', 'personal'],
-                        excerpt: "I'm excited to launch my new blog where I'll share insights on AI, software architecture, and engineering leadership. Join me on this journey!",
-                        image: '',
-                        featured: true,
-                        readingTime: 5
-                    }
-                    // More posts will be added via Decap CMS
-                ];
             }
 
             setupEventListeners() {
@@ -481,25 +524,31 @@
             }
 
             filterPosts() {
-                this.filteredPosts = this.allPosts.filter(post => {
-                    const matchesCategory = this.currentCategory === 'all' || post.category === this.currentCategory;
-                    const matchesSearch = !this.searchQuery || 
-                        post.title.toLowerCase().includes(this.searchQuery) ||
-                        post.excerpt.toLowerCase().includes(this.searchQuery) ||
-                        post.tags.some(tag => tag.toLowerCase().includes(this.searchQuery));
-                    
-                    return matchesCategory && matchesSearch;
-                });
+                let results = this.allPosts;
 
+                // 1. Filter by category
+                if (this.currentCategory !== 'all') {
+                    results = results.filter(post => post.category === this.currentCategory);
+                }
+
+                // 2. Search with Fuse.js
+                if (this.searchQuery && this.fuse) {
+                    const searchResults = this.fuse.search(this.searchQuery);
+                    results = searchResults
+                        .filter(r => results.includes(r.item)) // Only include items that passed the category filter
+                        .map(r => r.item);
+                }
+
+                this.filteredPosts = results;
                 this.currentPage = 1;
                 this.render();
             }
 
             render() {
                 document.getElementById('loading').style.display = 'none';
-                
+
                 // Update stats
-                document.getElementById('blogStats').textContent = 
+                document.getElementById('blogStats').textContent =
                     `${this.filteredPosts.length} ${this.filteredPosts.length === 1 ? 'post' : 'posts'} found`;
 
                 // Check if empty
@@ -528,15 +577,15 @@
 
             renderPostCard(post) {
                 const hasImage = post.image && post.image.trim() !== '';
-                
+
                 return `
                     <a href="/blog/post.html?post=${post.slug}" class="blog-card">
-                        ${hasImage ? 
-                            `<img src="${post.image}" alt="${post.title}" class="blog-card-image">` :
-                            `<div class="blog-card-image" style="background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); display: flex; align-items: center; justify-content: center;">
+                        ${hasImage ?
+                        `<img src="${post.image}" alt="${post.title}" class="blog-card-image">` :
+                        `<div class="blog-card-image" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); display: flex; align-items: center; justify-content: center;">
                                 <i class="fas fa-newspaper" style="font-size: 3rem; color: rgba(255,255,255,0.3);"></i>
                             </div>`
-                        }
+                    }
                         <div class="blog-card-content">
                             <div class="blog-card-category">${post.category}</div>
                             <h3 class="blog-card-title">${post.title}</h3>
@@ -555,7 +604,7 @@
 
             renderPagination() {
                 const totalPages = Math.ceil(this.filteredPosts.length / this.postsPerPage);
-                
+
                 if (totalPages <= 1) {
                     document.getElementById('pagination').innerHTML = '';
                     return;
@@ -610,4 +659,5 @@
         });
     </script>
 </body>
+
 </html>
