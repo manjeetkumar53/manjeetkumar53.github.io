@@ -164,7 +164,6 @@ class PortfolioManager {
         this.renderHighlights();
         this.renderCertifications();
         this.renderFunFacts();
-        this.renderBlog();
         this.renderContact();
         console.log('Content rendering complete');
     }
@@ -210,8 +209,6 @@ class PortfolioManager {
 
         socialLinksContainer.innerHTML = socialHTML;
         contactSocialContainer.innerHTML = socialHTML;
-
-        document.getElementById('viewAllBlog').href = social.blog;
     }
 
     renderSkills() {
@@ -357,28 +354,7 @@ class PortfolioManager {
         `).join('');
     }
 
-    renderBlog() {
-        const { blogPosts } = this.content;
-        const blogGrid = document.getElementById('blogGrid');
 
-        blogGrid.innerHTML = blogPosts.map((post, index) => `
-            <a href="${post.url}" target="_blank" rel="noopener noreferrer" class="blog-card fade-in" style="animation-delay: ${index * 0.1}s">
-                <img src="${post.image}" alt="${post.title}" class="blog-image">
-                <div class="blog-content">
-                    <div class="blog-category">${post.category}</div>
-                    <h3 class="blog-title">${post.title}</h3>
-                    <div class="blog-date">
-                        <i class="fas fa-calendar-alt"></i>
-                        ${new Date(post.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        })}
-                    </div>
-                </div>
-            </a>
-        `).join('');
-    }
 
     renderContact() {
         const { personal } = this.content;
