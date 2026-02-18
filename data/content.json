@@ -469,6 +469,85 @@
       "link": "https://redisstars.redislabs.com/profiles/3239acb7-f8ba-4703-a795-ff1d22470fa4"
     }
   ],
+  "certifications": [
+    {
+      "title": "Introduction to Vertex AI Studio",
+      "issuer": "Google Cloud",
+      "date": "Feb 17, 2026",
+      "link": "https://www.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/22349501",
+      "image": "https://api.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/22349501/image"
+    },
+    {
+      "title": "Create Image Captioning Models",
+      "issuer": "Google Cloud",
+      "date": "Feb 17, 2026",
+      "link": "https://www.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/22349078",
+      "image": "https://api.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/22349078/image"
+    },
+    {
+      "title": "Transformer Models and BERT Model",
+      "issuer": "Google Cloud",
+      "date": "Feb 17, 2026",
+      "link": "https://www.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/22346533",
+      "image": "https://api.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/22346533/image"
+    },
+    {
+      "title": "Encoder-Decoder Architecture",
+      "issuer": "Google Cloud",
+      "date": "Feb 17, 2026",
+      "link": "https://www.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/22346317",
+      "image": "https://api.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/22346317/image"
+    },
+    {
+      "title": "Attention Mechanism",
+      "issuer": "Google Cloud",
+      "date": "Feb 17, 2026",
+      "link": "https://www.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/9507212",
+      "image": "https://api.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/9507212/image"
+    },
+    {
+      "title": "Introduction to Image Generation",
+      "issuer": "Google Cloud",
+      "date": "Feb 17, 2026",
+      "link": "https://www.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/9507045",
+      "image": "https://api.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/9507045/image"
+    },
+    {
+      "title": "Responsible AI: Applying AI Principles with Google Cloud",
+      "issuer": "Google Cloud",
+      "date": "Feb 17, 2026",
+      "link": "https://www.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/8411865",
+      "image": "https://api.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/8411865/image"
+    },
+    {
+      "title": "Prompt Design in Vertex AI",
+      "issuer": "Google Cloud",
+      "date": "Feb 17, 2026",
+      "link": "https://www.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/8365907",
+      "image": "https://api.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/8365907/image"
+    },
+    {
+      "title": "Introduction to Responsible AI",
+      "issuer": "Google Cloud",
+      "date": "Feb 17, 2026",
+      "link": "https://www.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/8322885",
+      "image": "https://api.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/8322885/image"
+    },
+    {
+      "title": "Introduction to Large Language Models",
+      "issuer": "Google Cloud",
+      "date": "Feb 17, 2026",
+      "link": "https://www.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/8322649",
+      "image": "https://api.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/8322649/image"
+    },
+    {
+      "title": "Introduction to Generative AI",
+      "issuer": "Google Cloud",
+      "date": "Feb 17, 2026",
+      "link": "https://www.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/8317172",
+      "image": "https://api.skills.google/public_profiles/3567e94d-868c-4cdb-a3ab-02e97ac9b575/badges/8317172/image"
+    }
+  ],
   "funFacts": [
     {
       "icon": "la-calendar",

@@ -74,7 +74,7 @@ class PortfolioManager {
     updateActiveNavLink() {
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
-        
+
         let current = '';
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -123,7 +123,7 @@ class PortfolioManager {
 
         const type = () => {
             const currentText = texts[textIndex];
-            
+
             if (!isDeleting) {
                 typedOutput.textContent = `I am a ${currentText.substring(0, charIndex)}`;
                 charIndex++;
@@ -162,6 +162,7 @@ class PortfolioManager {
         this.renderSkills();
         this.renderExperience();
         this.renderHighlights();
+        this.renderCertifications();
         this.renderFunFacts();
         this.renderBlog();
         this.renderContact();
@@ -170,17 +171,17 @@ class PortfolioManager {
 
     renderPersonalInfo() {
         const { personal } = this.content;
-        
+
         document.getElementById('heroName').textContent = personal.name;
         document.getElementById('heroDescription').innerHTML = personal.bio;
         document.getElementById('profileImage').src = personal.profileImage;
-        
+
         // Download CV button is optional
         const downloadBtn = document.getElementById('downloadCV');
         if (downloadBtn && personal.resumeUrl) {
             downloadBtn.href = personal.resumeUrl;
         }
-        
+
         document.getElementById('lastUpdated').textContent = new Date(this.content.lastUpdated).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
@@ -216,12 +217,12 @@ class PortfolioManager {
     renderSkills() {
         const { skills } = this.content;
         const skillsGrid = document.getElementById('skillsGrid');
-        
+
         if (!skillsGrid) {
             console.error('skillsGrid element not found');
             return;
         }
-        
+
         console.log('Rendering skills:', skills.length);
 
         skillsGrid.innerHTML = skills.map(skill => `
@@ -316,6 +317,33 @@ class PortfolioManager {
         `).join('');
     }
 
+    renderCertifications() {
+        const { certifications } = this.content;
+        const certificationsGrid = document.getElementById('certificationsGrid');
+
+        if (!certificationsGrid || !certifications) return;
+
+        certificationsGrid.innerHTML = certifications.map((cert, index) => {
+            const hasImage = cert.image && cert.image.trim() !== '';
+            // Using a high-quality Google Cloud logo as default/fallback
+            const logoUrl = hasImage ? cert.image : 'https://www.gstatic.com/images/branding/product/2x/google_cloud_64dp.png';
+
+            return `
+                <a href="${cert.link || '#'}" target="_blank" rel="noopener noreferrer" class="badge-card fade-in" style="animation-delay: ${index * 0.1}s">
+                    <div class="badge-image-container">
+                        <img src="${logoUrl}" alt="${cert.title}" class="badge-image" onerror="this.src='https://cloud.google.com/_static/cloud/images/social-icon-google-cloud-1200-630.png'">
+                    </div>
+                    <div class="badge-issuer">${cert.issuer}</div>
+                    <h3 class="badge-title">${cert.title}</h3>
+                    <div class="badge-footer">
+                        <div class="badge-date">Earned ${cert.date}</div>
+                        <div class="badge-status">Completion Badge</div>
+                    </div>
+                </a>
+            `;
+        }).join('');
+    }
+
     renderFunFacts() {
         const { funFacts } = this.content;
         const funFactsGrid = document.getElementById('funFactsGrid');
@@ -341,11 +369,11 @@ class PortfolioManager {
                     <h3 class="blog-title">${post.title}</h3>
                     <div class="blog-date">
                         <i class="fas fa-calendar-alt"></i>
-                        ${new Date(post.date).toLocaleDateString('en-US', { 
-                            year: 'numeric', 
-                            month: 'long', 
-                            day: 'numeric' 
-                        })}
+                        ${new Date(post.date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        })}
                     </div>
                 </div>
             </a>
@@ -354,7 +382,7 @@ class PortfolioManager {
 
     renderContact() {
         const { personal } = this.content;
-        
+
         document.getElementById('contactLocation').textContent = personal.location;
         document.getElementById('contactEmail').textContent = personal.email;
 
@@ -362,15 +390,15 @@ class PortfolioManager {
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             const formData = new FormData(contactForm);
             const data = Object.fromEntries(formData);
-            
+
             // Create mailto link
             const subject = encodeURIComponent(`Portfolio Contact from ${data.name}`);
             const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
             window.location.href = `mailto:${personal.email}?subject=${subject}&body=${body}`;
-            
+
             contactForm.reset();
         });
     }
