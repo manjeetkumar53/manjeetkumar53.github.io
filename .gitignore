@@ -16,3 +16,5 @@ Manjeet Kumar CV 2025.pdf
 .idea/
 *.swp
 *.swo
+node_modules/
+package-lock.json
