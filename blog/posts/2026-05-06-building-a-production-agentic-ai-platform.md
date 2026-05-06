@@ -16,15 +16,15 @@ Have you ever asked an AI assistant something and wondered: *how did it decide w
 
 Most AI demos never answer these questions. They show a cool result but hide everything happening underneath.
 
-The [Agentic AI Platform](https://github.com/manjeetkumar53/agentic-ai-platform) is built to answer all of them — openly, on every single request.
+The [Agentic AI Platform](https://github.com/manjeetkumar53/agentic-ai-platform) is built to answer all of them - openly, on every single request.
 
-In plain terms: it is a small but complete AI system that receives a question, figures out which tools to use to answer it, calls those tools, generates an answer using an AI model, and returns everything — the answer, how it reasoned, what tools it called, how long it took, what it cost, and whether anything went wrong.
+In plain terms: it is a small but complete AI system that receives a question, figures out which tools to use to answer it, calls those tools, generates an answer using an AI model, and returns everything - the answer, how it reasoned, what tools it called, how long it took, what it cost, and whether anything went wrong.
 
 **Who is it useful for?**
 
-- **Developers** building AI features who want to understand how to structure a safe, observable agent — not just a prompt-and-response loop.
+- **Developers** building AI features who want to understand how to structure a safe, observable agent - not just a prompt-and-response loop.
 - **Teams** evaluating LLM providers who need a clean way to swap between OpenAI, Anthropic, Ollama, or a local mock without rewriting code.
-- **Engineers** who need to demonstrate that their AI system has safety checks, cost tracking, and reliability controls — not just a working demo.
+- **Engineers** who need to demonstrate that their AI system has safety checks, cost tracking, and reliability controls - not just a working demo.
 
 **The core problems it solves:**
 
@@ -60,7 +60,7 @@ Client
 
 Every request returns not just an answer, but a full trace. You can see why the planner selected certain tools, what each tool returned, how long the provider took, what it cost, and whether a fallback provider was used.
 
-## Layer 1: Orchestration — Planner and Executor
+## Layer 1: Orchestration - Planner and Executor
 
 The orchestration layer lives in [`app/orchestration.py`](https://github.com/manjeetkumar53/agentic-ai-platform/blob/main/app/orchestration.py) and separates concerns cleanly into three classes.
 
@@ -89,7 +89,7 @@ class PlannerAgent:
         return PlannerOutput(reasoning="; ".join(reasoning_bits), tools=tools)
 ```
 
-The `PlannerOutput` carries both the reasoning string and the selected tool list. This makes the planner decision explicit and testable — you can write benchmark cases against it without touching the LLM.
+The `PlannerOutput` carries both the reasoning string and the selected tool list. This makes the planner decision explicit and testable - you can write benchmark cases against it without touching the LLM.
 
 ### The Executor
 
@@ -212,7 +212,7 @@ class PIIGuard:
             if pattern.search(text):
                 raise GuardrailViolation(
                     "PIIGuard",
-                    f"Detected {label} pattern in prompt — request blocked",
+                    f"Detected {label} pattern in prompt - request blocked",
                 )
 ```
 
@@ -257,13 +257,13 @@ class Guardrails:
 
 | Guard | Trigger | HTTP response |
 |---|---|---|
-| `PIIGuard` | Email, phone, SSN, credit card, IPv4 | 422 — request blocked |
-| `ToolAllowlist` | Tool not in session allowlist | 422 — request blocked |
-| `ResponseGuard` | Response too long or blocked phrase | 422 — response suppressed |
+| `PIIGuard` | Email, phone, SSN, credit card, IPv4 | 422 - request blocked |
+| `ToolAllowlist` | Tool not in session allowlist | 422 - request blocked |
+| `ResponseGuard` | Response too long or blocked phrase | 422 - response suppressed |
 
 All violations return the same structured error type so client code handles them uniformly.
 
-## Layer 4: Reliability — Circuit Breaker and Retry
+## Layer 4: Reliability - Circuit Breaker and Retry
 
 The reliability module in [`app/reliability.py`](https://github.com/manjeetkumar53/agentic-ai-platform/blob/main/app/reliability.py) implements two patterns.
 
@@ -342,14 +342,14 @@ You change `MODEL_PROVIDER` in your `.env` and the service wires the correct pro
 
 | Provider | Required config |
 |---|---|
-| `mock` | None — deterministic, no API key needed |
+| `mock` | None - deterministic, no API key needed |
 | `openai` | `OPENAI_API_KEY` |
 | `anthropic` | `ANTHROPIC_API_KEY` |
 | `ollama` | `OLLAMA_BASE_URL`, `OLLAMA_MODEL` |
 
-The mock provider is not a stub — it returns deterministic responses that pass guardrails and telemetry, which is exactly what you need for CI. All 37 tests pass with `MODEL_PROVIDER=mock` and no API keys.
+The mock provider is not a stub - it returns deterministic responses that pass guardrails and telemetry, which is exactly what you need for CI. All 37 tests pass with `MODEL_PROVIDER=mock` and no API keys.
 
-## Layer 6: Telemetry — SQLite Event Store
+## Layer 6: Telemetry - SQLite Event Store
 
 Every agent run writes a `TelemetryEvent` to SQLite via [`app/telemetry.py`](https://github.com/manjeetkumar53/agentic-ai-platform/blob/main/app/telemetry.py):
 
@@ -382,9 +382,9 @@ def summary(self) -> dict:
     }
 ```
 
-These power the `GET /v1/metrics/summary` endpoint and the Streamlit dashboard. SQLite is a practical choice for a single-node setup — no infrastructure overhead, no network dependency, and easy to inspect directly.
+These power the `GET /v1/metrics/summary` endpoint and the Streamlit dashboard. SQLite is a practical choice for a single-node setup - no infrastructure overhead, no network dependency, and easy to inspect directly.
 
-## Layer 7: Evaluation — Planner Regression Testing
+## Layer 7: Evaluation - Planner Regression Testing
 
 The evaluation harness in [`evaluation/run.py`](https://github.com/manjeetkumar53/agentic-ai-platform/blob/main/evaluation/run.py) runs benchmark cases from `evaluation/prompts.json` and measures planner accuracy:
 
@@ -404,7 +404,7 @@ This is the evaluation mindset that is missing from most agent implementations. 
 
 ## Layer 8: Operations Dashboard
 
-Running `streamlit run dashboard/app.py` opens a live analytics view backed by the telemetry database. It shows request volume, average latency, cost breakdown, provider distribution, and fallback rate — all from the same SQLite file the service writes to.
+Running `streamlit run dashboard/app.py` opens a live analytics view backed by the telemetry database. It shows request volume, average latency, cost breakdown, provider distribution, and fallback rate - all from the same SQLite file the service writes to.
 
 You do not need a separate metrics infrastructure to operate this system. The telemetry store is the source of truth.
 
@@ -428,7 +428,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 
-# No API key needed — mock provider runs by default
+# No API key needed - mock provider runs by default
 uvicorn app.main:app --reload
 ```
 
@@ -461,7 +461,7 @@ print(response)
 This platform is different in five specific ways.
 
 **1. Guardrails in the request path, not bolted on.**
-PII blocking and tool allowlists fire before the LLM sees the prompt. Response checks fire before the client sees the answer. This is not optional — it runs on every request.
+PII blocking and tool allowlists fire before the LLM sees the prompt. Response checks fire before the client sees the answer. This is not optional - it runs on every request.
 
 **2. Explicit, typed traces.**
 Every response includes `planner_reasoning`, `selected_tools`, and `tool_calls`. You can debug a production issue by reading the response body, not by searching logs.
@@ -470,7 +470,7 @@ Every response includes `planner_reasoning`, `selected_tools`, and `tool_calls`.
 Retry and circuit breaker are wired into the service layer. The fallback provider is always ready. Degraded state is exposed via a dedicated endpoint.
 
 **4. Cost and latency tracked per request.**
-Not just in aggregate dashboards — each response body carries `tokens_in`, `tokens_out`, `estimated_cost_usd`, and `latency_ms`. Operations teams can find expensive requests without a dedicated APM tool.
+Not just in aggregate dashboards - each response body carries `tokens_in`, `tokens_out`, `estimated_cost_usd`, and `latency_ms`. Operations teams can find expensive requests without a dedicated APM tool.
 
 **5. Deterministic tests without API keys.**
 The mock provider makes the entire test suite runnable in CI with zero external dependencies. The planner evaluation has a numeric threshold gate. A failing planner fails the build.
@@ -496,7 +496,7 @@ The current platform has a documented production hardening backlog:
 - Add persisted evaluation history so planner quality can be trended over time
 - Add CI workflow that gates planner regressions on every pull request
 
-Each of these is a known, bounded engineering problem — not an unknown risk.
+Each of these is a known, bounded engineering problem - not an unknown risk.
 
 ## Final Thought
 

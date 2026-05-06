@@ -1,10 +1,10 @@
 ---
-title: "AI Incident Copilot: How to Give AI the Power to Help — But Not the Power to Act Alone"
+title: "AI Incident Copilot: How to Give AI the Power to Help - But Not the Power to Act Alone"
 date: "2026-05-06T12:00:00+02:00"
 author: "Manjeet Kumar"
 category: "Enterprise AI"
 tags: ["Incident Response", "AIOps", "RBAC", "FastAPI", "Production AI", "Python", "Observability"]
-excerpt: "A deep-dive into the AI Incident Copilot — a production-style system that uses AI to plan incident responses, but always requires human approval and role-based authorization before any action is taken."
+excerpt: "A deep-dive into the AI Incident Copilot - a production-style system that uses AI to plan incident responses, but always requires human approval and role-based authorization before any action is taken."
 image: ""
 featured: true
 draft: false
@@ -14,9 +14,9 @@ draft: false
 
 Imagine your monitoring system fires a critical alert at 2am. Your checkout service is throwing 5xx errors. The SLO is breached.
 
-You need to move fast. But moving too fast — giving an AI full control to restart services, shift traffic, or roll back deployments without a human decision — is how you turn a bad incident into a worse one.
+You need to move fast. But moving too fast - giving an AI full control to restart services, shift traffic, or roll back deployments without a human decision - is how you turn a bad incident into a worse one.
 
-The [AI Incident Copilot](https://github.com/manjeetkumar53/ai-incident-copilot) solves this exact tension. It uses AI to do the hard thinking — gather context, identify the runbook, generate a mitigation plan — but puts a human gate before anything actually changes in your system.
+The [AI Incident Copilot](https://github.com/manjeetkumar53/ai-incident-copilot) solves this exact tension. It uses AI to do the hard thinking - gather context, identify the runbook, generate a mitigation plan - but puts a human gate before anything actually changes in your system.
 
 **In plain terms:** an alert comes in, the AI builds a response plan, a human with the right role approves it, and only then does execution happen. Every step is logged. A full audit report is available at any point.
 
@@ -24,7 +24,7 @@ The [AI Incident Copilot](https://github.com/manjeetkumar53/ai-incident-copilot)
 
 - **Engineering teams** who want AI-assisted incident response but cannot afford to let AI act without a human sign-off.
 - **Platform and SRE teams** building on-call tooling who need RBAC, severity policies, and audit trails built into the system from day one.
-- **Engineering managers** who want visibility into how incidents were handled — what was planned, who approved it, and when.
+- **Engineering managers** who want visibility into how incidents were handled - what was planned, who approved it, and when.
 
 **The core problems it solves:**
 
@@ -36,7 +36,7 @@ The [AI Incident Copilot](https://github.com/manjeetkumar53/ai-incident-copilot)
 | No record of who did what | Immutable timeline + full Markdown audit report |
 | Alerts from multiple sources | PagerDuty, Slack, and webhook ingest surface built in |
 
-You can run it locally in two minutes, trigger a full incident lifecycle, and review the audit report — all without any external services.
+You can run it locally in two minutes, trigger a full incident lifecycle, and review the audit report - all without any external services.
 
 > [!IMPORTANT]
 > The design principle is **control before automation**. AI earns the right to execute by first earning human trust through a plan, a review, and an approval.
@@ -51,7 +51,7 @@ open  ->  planned  ->  approved  ->  executing  ->  mitigated
 
 | State | What happened |
 |---|---|
-| `open` | Alert ingested — waiting for a plan |
+| `open` | Alert ingested - waiting for a plan |
 | `planned` | Copilot generated a mitigation plan |
 | `approved` | Human with the right role approved the plan |
 | `executing` | Approved steps are running |
@@ -65,7 +65,7 @@ This is not just cosmetic. The API enforces each transition:
 
 ## Step 1: Ingest the Alert
 
-The first endpoint accepts an alert from your monitoring system — directly or via a named integration:
+The first endpoint accepts an alert from your monitoring system - directly or via a named integration:
 
 ```python
 @app.post("/v1/incidents/ingest", response_model=IngestResponse, status_code=201)
@@ -147,10 +147,10 @@ def create_plan(record: IncidentRecord) -> IncidentPlan:
 
 Notice how each step has a `step_type`:
 
-- `read_only` — safe diagnostics: checking dashboards, pulling logs, correlating deploys.
-- `write_action` — actual changes: rollback, traffic shift, config push.
+- `read_only` - safe diagnostics: checking dashboards, pulling logs, correlating deploys.
+- `write_action` - actual changes: rollback, traffic shift, config push.
 
-This distinction matters because the policy engine later checks that a `write_action` exists before allowing execution. A plan with only read steps cannot be executed — there is nothing to do.
+This distinction matters because the policy engine later checks that a `write_action` exists before allowing execution. A plan with only read steps cannot be executed - there is nothing to do.
 
 The plan also carries a `confidence` score and a `rationale` field. This gives the approver visible reasoning before they sign off.
 
@@ -185,13 +185,13 @@ def approve_plan(incident_id: str, payload: ApprovalRequest, request: Request) -
     return ApprovalResponse(status=IncidentStatus.approved, approved_by=payload.approved_by)
 ```
 
-If the role header is missing or wrong, you get a 403. If no plan has been generated yet, you get a 409. The incident status is only updated to `approved` after all checks pass — and the timeline records exactly who approved it and what comment they left.
+If the role header is missing or wrong, you get a 403. If no plan has been generated yet, you get a 409. The incident status is only updated to `approved` after all checks pass - and the timeline records exactly who approved it and what comment they left.
 
 ```bash
 curl -s -X POST http://127.0.0.1:8000/v1/incidents/<ID>/approve \
   -H "Content-Type: application/json" \
   -H "X-Role: incident_commander" \
-  -d '{"approved_by":"alice","comment":"Reviewed — proceed with rollback"}'
+  -d '{"approved_by":"alice","comment":"Reviewed - proceed with rollback"}'
 ```
 
 ## Step 4: Enforce Execution Policy
@@ -275,7 +275,7 @@ A real audit report looks like this:
 ## Timeline
 - 2026-05-06T11:00:01: incident.ingested by system - Source=pagerduty
 - 2026-05-06T11:00:03: plan.generated by copilot - Runbook=rb-checkout-api-001
-- 2026-05-06T11:02:15: plan.approved by alice - Reviewed — proceed with rollback
+- 2026-05-06T11:02:15: plan.approved by alice - Reviewed - proceed with rollback
 - 2026-05-06T11:02:18: execution.started by alice - Running approved steps
 - 2026-05-06T11:02:19: incident.mitigated by alice - Mitigation marked complete
 ```
@@ -306,7 +306,7 @@ class TimelineEvent(BaseModel):
     created_at: str | None = None
 ```
 
-The `confidence` field is bounded between 0 and 1 at the model level. `step_type` is an enum — no free-text string can slip through. Every field the API accepts or returns is validated and typed.
+The `confidence` field is bounded between 0 and 1 at the model level. `step_type` is an enum - no free-text string can slip through. Every field the API accepts or returns is validated and typed.
 
 ## The Full API Surface
 
@@ -367,7 +367,7 @@ Most "AI + incident response" demos show a chatbot answering questions about an 
 There is a hard boundary between generation and action. The AI cannot skip approval. The system cannot execute without a plan. An `sre_oncall` cannot execute a critical incident. These are enforced at the API level, not by convention.
 
 **2. Every decision is recorded before it happens.**
-Timeline events are written at ingest, at plan generation, at approval, at execution start, and at mitigation. The audit report is not assembled after the fact — it is the live record of the incident as it unfolded.
+Timeline events are written at ingest, at plan generation, at approval, at execution start, and at mitigation. The audit report is not assembled after the fact - it is the live record of the incident as it unfolded.
 
 **3. The controls are part of the product surface.**
 The `GET /v1/incidents/{id}/audit-report` endpoint returns a `controls` array alongside the Markdown report. This is not a docs page. It is the system telling you, on every incident, which controls were active and applied.
@@ -381,7 +381,7 @@ Simple enough to demonstrate clearly in a portfolio context while making control
 Zero infrastructure overhead. The store is abstracted behind an interface and can be replaced with Postgres with a migration without changing any service code.
 
 **Why a deterministic planner instead of a live LLM call?**
-Stable tests, predictable behavior under incident pressure, and no dependency on an API key or network call during an active incident. The planner logic is the part to extend — the control model around it is what matters.
+Stable tests, predictable behavior under incident pressure, and no dependency on an API key or network call during an active incident. The planner logic is the part to extend - the control model around it is what matters.
 
 ## Production Hardening Backlog
 
@@ -393,11 +393,11 @@ The README is honest about what is production-ready and what is not:
 - Add real PagerDuty, Slack, and deployment rollback integrations
 - Add immutable audit export and incident analytics dashboard
 
-Each of these is a known, bounded problem. The control model — state machine, RBAC, policy engine, timeline, audit report — is the hard part, and it is already built.
+Each of these is a known, bounded problem. The control model - state machine, RBAC, policy engine, timeline, audit report - is the hard part, and it is already built.
 
 ## Final Thought
 
-AI can make incident response faster. But faster in the wrong direction — an AI that acts without review during a critical production incident — creates more damage, not less.
+AI can make incident response faster. But faster in the wrong direction - an AI that acts without review during a critical production incident - creates more damage, not less.
 
 The right model is: AI handles the cognitive load of planning, humans handle the judgment of approval, and policy handles the enforcement of who can do what.
 
