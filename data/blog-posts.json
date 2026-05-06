@@ -1,5 +1,26 @@
 [
   {
+    "slug": "2026-05-06-ai-incident-copilot-controlled-automation",
+    "title": "AI Incident Copilot: How to Give AI the Power to Help \u2014 But Not the Power to Act Alone",
+    "date": "2026-05-06T12:00:00+02:00",
+    "author": "Manjeet Kumar",
+    "category": "Enterprise AI",
+    "tags": [
+      "Incident Response",
+      "AIOps",
+      "RBAC",
+      "FastAPI",
+      "Production AI",
+      "Python",
+      "Observability"
+    ],
+    "image": "",
+    "excerpt": "A deep-dive into the AI Incident Copilot \u2014 a production-style system that uses AI to plan incident responses, but always requires human approval and role-based authorization before any action is taken.",
+    "featured": true,
+    "draft": false,
+    "readingTime": 12
+  },
+  {
     "slug": "2026-05-06-building-a-production-agentic-ai-platform",
     "title": "Building a Production Agentic AI Platform: Architecture, Guardrails, and Observability",
     "date": "2026-05-06T11:00:00+02:00",
