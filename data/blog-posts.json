@@ -21,6 +21,24 @@
     "readingTime": 12
   },
   {
+    "slug": "2026-05-06-ai-engineering-playbook",
+    "title": "AI Engineering Playbook: Practical Principles for Production-Grade AI",
+    "date": "2026-05-06T11:45:00+02:00",
+    "author": "Manjeet Kumar",
+    "category": "Enterprise AI",
+    "tags": [
+      "Playbook",
+      "Architecture",
+      "Production",
+      "Guides"
+    ],
+    "image": "",
+    "excerpt": "A concise playbook that connects practical system patterns across multiple repos: routing, agent orchestration, RAG evaluation, and safe AI automation.",
+    "featured": true,
+    "draft": false,
+    "readingTime": 3
+  },
+  {
     "slug": "2026-05-06-llm-routing-engine",
     "title": "LLM Routing Engine: Smart Model Selection for Cost and Quality",
     "date": "2026-05-06T11:40:00+02:00",
