@@ -603,6 +603,26 @@
       "readingTime": 12
     },
     {
+      "slug": "2026-05-06-enterprise-rag-eval-platform",
+      "title": "Enterprise RAG Eval Platform: Testing Ground for Grounded AI",
+      "date": "2026-05-06T11:35:00+02:00",
+      "author": "Manjeet Kumar",
+      "category": "Enterprise AI",
+      "tags": [
+        "RAG",
+        "Evaluation",
+        "Retrieval",
+        "Observability",
+        "Python",
+        "FastAPI"
+      ],
+      "image": "",
+      "excerpt": "A practical, API-first framework to validate retrieval-augmented generation systems: ingestion, chunking, retrieval, citation-backed answers, and deterministic regression evaluation.",
+      "featured": true,
+      "draft": false,
+      "readingTime": 6
+    },
+    {
       "slug": "2026-05-06-building-a-production-agentic-ai-platform",
       "title": "Building a Production Agentic AI Platform: Architecture, Guardrails, and Observability",
       "date": "2026-05-06T11:00:00+02:00",
@@ -622,26 +642,6 @@
       "featured": true,
       "draft": false,
       "readingTime": 14
-    },
-    {
-      "slug": "2026-05-06-enterprise-ai-workflows-from-pilots-to-operating-model",
-      "title": "Enterprise AI Workflows: From Pilots to Operating Model",
-      "date": "2026-05-06T09:00:00+02:00",
-      "author": "Manjeet Kumar",
-      "category": "Enterprise AI",
-      "tags": [
-        "Enterprise AI",
-        "Workflow",
-        "ERP",
-        "Procurement",
-        "Logistics",
-        "SaaS"
-      ],
-      "image": "",
-      "excerpt": "A practical operating model for turning AI pilots into governed enterprise workflows across SaaS, logistics, procurement, ERP, and operational teams.",
-      "featured": true,
-      "draft": false,
-      "readingTime": 7
     }
   ],
   "lastUpdated": "2026-02-02"
