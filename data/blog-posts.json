@@ -21,6 +21,25 @@
     "readingTime": 12
   },
   {
+    "slug": "2026-05-06-custom-pdf-ai",
+    "title": "Custom PDF AI: Chat with Your Documents Locally",
+    "date": "2026-05-06T11:50:00+02:00",
+    "author": "Manjeet Kumar",
+    "category": "Developer Tools",
+    "tags": [
+      "RAG",
+      "PDF",
+      "Streamlit",
+      "FAISS",
+      "LangChain"
+    ],
+    "image": "",
+    "excerpt": "A local Streamlit app that lets you upload multiple PDFs and chat with their combined content using embeddings and a lightweight vector store.",
+    "featured": false,
+    "draft": false,
+    "readingTime": 3
+  },
+  {
     "slug": "2026-05-06-chat-with-webs",
     "title": "Chat with Websites: Build a RAG-Powered Web Chatbot",
     "date": "2026-05-06T11:48:00+02:00",
