@@ -21,6 +21,25 @@
     "readingTime": 12
   },
   {
+    "slug": "2026-05-06-chat-with-webs",
+    "title": "Chat with Websites: Build a RAG-Powered Web Chatbot",
+    "date": "2026-05-06T11:48:00+02:00",
+    "author": "Manjeet Kumar",
+    "category": "Developer Tools",
+    "tags": [
+      "RAG",
+      "Streamlit",
+      "LangChain",
+      "ChromaDB",
+      "Web Scraping"
+    ],
+    "image": "",
+    "excerpt": "A simple, local Streamlit app that turns any public web page into a chatable knowledge base using RAG. Learn how it works, run it locally, and see example usage.",
+    "featured": false,
+    "draft": false,
+    "readingTime": 4
+  },
+  {
     "slug": "2026-05-06-ai-engineering-playbook",
     "title": "AI Engineering Playbook: Practical Principles for Production-Grade AI",
     "date": "2026-05-06T11:45:00+02:00",

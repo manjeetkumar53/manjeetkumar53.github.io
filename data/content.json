@@ -603,6 +603,25 @@
       "readingTime": 12
     },
     {
+      "slug": "2026-05-06-chat-with-webs",
+      "title": "Chat with Websites: Build a RAG-Powered Web Chatbot",
+      "date": "2026-05-06T11:48:00+02:00",
+      "author": "Manjeet Kumar",
+      "category": "Developer Tools",
+      "tags": [
+        "RAG",
+        "Streamlit",
+        "LangChain",
+        "ChromaDB",
+        "Web Scraping"
+      ],
+      "image": "",
+      "excerpt": "A simple, local Streamlit app that turns any public web page into a chatable knowledge base using RAG. Learn how it works, run it locally, and see example usage.",
+      "featured": false,
+      "draft": false,
+      "readingTime": 4
+    },
+    {
       "slug": "2026-05-06-ai-engineering-playbook",
       "title": "AI Engineering Playbook: Practical Principles for Production-Grade AI",
       "date": "2026-05-06T11:45:00+02:00",
@@ -619,25 +638,6 @@
       "featured": true,
       "draft": false,
       "readingTime": 3
-    },
-    {
-      "slug": "2026-05-06-llm-routing-engine",
-      "title": "LLM Routing Engine: Smart Model Selection for Cost and Quality",
-      "date": "2026-05-06T11:40:00+02:00",
-      "author": "Manjeet Kumar",
-      "category": "Enterprise AI",
-      "tags": [
-        "Model Routing",
-        "Cost Optimization",
-        "Observability",
-        "Python",
-        "FastAPI"
-      ],
-      "image": "",
-      "excerpt": "Policy-driven routing that sends simple prompts to cheaper models and escalates complex prompts to premium models, while tracking cost, quality proxies, and telemetry.",
-      "featured": true,
-      "draft": false,
-      "readingTime": 5
     }
   ],
   "lastUpdated": "2026-02-02"
