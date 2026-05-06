@@ -21,6 +21,24 @@
     "readingTime": 12
   },
   {
+    "slug": "2026-05-06-twitterbot",
+    "title": "TwitterBot: Daily Social Intelligence for X (Twitter)",
+    "date": "2026-05-06T11:57:00+02:00",
+    "author": "Manjeet Kumar",
+    "category": "Social Listening",
+    "tags": [
+      "Social Listening",
+      "Playwright",
+      "Sentiment",
+      "Python"
+    ],
+    "image": "",
+    "excerpt": "A practical toolkit to crawl, analyze, and report daily social signals from X. Use API-first crawling, rule-based sentiment, and persisted reports for trend analysis.",
+    "featured": false,
+    "draft": false,
+    "readingTime": 4
+  },
+  {
     "slug": "2026-05-06-custom-pdf-ai",
     "title": "Custom PDF AI: Chat with Your Documents Locally",
     "date": "2026-05-06T11:50:00+02:00",
