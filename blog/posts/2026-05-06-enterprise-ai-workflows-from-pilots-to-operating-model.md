@@ -25,6 +25,15 @@ After two decades around enterprise software, SaaS platforms, logistics networks
 
 Every serious AI workflow should have six layers.
 
+| Layer | Enterprise question | Output |
+|---|---|---|
+| Intake | What happened and who owns it? | Structured business event |
+| Context | What evidence is required? | Cited ERP, SaaS, logistics, procurement, and policy context |
+| Decision | What should happen next? | Recommendation, risk, confidence, and alternatives |
+| Control | Who must approve it? | Role-based approval path |
+| Execution | Which system changes? | Typed action in the system of record |
+| Learning | Did it work? | Audit trail and outcome metrics |
+
 ### 1. Intake
 
 The workflow starts with a business event, not a prompt.
@@ -192,19 +201,19 @@ Model choice matters, but architecture matters more. A premium model without wor
 
 Avoid measuring only token usage or chat sessions. Enterprise leaders care about operating impact.
 
-Useful metrics include:
-
-- cycle time reduction
-- exception resolution time
-- first-touch resolution
-- approval latency
-- automation rate by risk level
-- manual rework rate
-- policy violation rate
-- model fallback rate
-- cost per completed workflow
-- user override rate
-- business outcome after recommendation
+| Metric | Why it matters |
+|---|---|
+| Cycle time reduction | Shows whether the workflow is actually faster |
+| Exception resolution time | Measures operational pressure removed from teams |
+| First-touch resolution | Proves the AI has enough context to be useful |
+| Approval latency | Exposes slow governance paths |
+| Automation rate by risk level | Separates safe automation from risky automation |
+| Manual rework rate | Shows whether recommendations are trusted |
+| Policy violation rate | Tracks control quality |
+| Model fallback rate | Measures reliability of routing and providers |
+| Cost per completed workflow | Connects AI spend to process value |
+| User override rate | Reveals where humans disagree with the workflow |
+| Business outcome after recommendation | Keeps the system honest |
 
 If the metric does not connect to a process owner, it is probably not enough.
 

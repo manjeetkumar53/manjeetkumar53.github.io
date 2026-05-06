@@ -239,26 +239,40 @@
         /* Article Content */
         .article-content {
             max-width: 100%;
+            color: var(--text-secondary);
         }
 
         .article-content h2,
         .article-content h3,
         .article-content h4 {
             font-family: 'Space Grotesk', sans-serif;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
+            margin-top: 3.5rem;
+            margin-bottom: 1.15rem;
             color: var(--text);
             scroll-margin-top: 100px;
         }
 
         .article-content h2 {
-            font-size: 2rem;
-            border-bottom: 2px solid var(--dark-lighter);
-            padding-bottom: 0.5rem;
+            font-size: clamp(1.7rem, 3vw, 2.25rem);
+            line-height: 1.18;
+            padding-bottom: 0.85rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+            position: relative;
+        }
+
+        .article-content h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -1px;
+            width: 4rem;
+            height: 2px;
+            background: var(--primary);
         }
 
         .article-content h3 {
-            font-size: 1.5rem;
+            font-size: clamp(1.25rem, 2vw, 1.55rem);
+            line-height: 1.25;
         }
 
         .article-content h4 {
@@ -266,9 +280,20 @@
         }
 
         .article-content p {
-            margin-bottom: 1.8rem;
-            font-size: 1.15rem;
+            margin-bottom: 1.65rem;
+            font-size: 1.08rem;
             color: var(--text-secondary);
+            line-height: 1.85;
+        }
+
+        .article-content>p:first-of-type {
+            color: var(--text);
+            font-size: clamp(1.12rem, 2vw, 1.28rem);
+            line-height: 1.75;
+            padding: 1.35rem 1.5rem;
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.13), rgba(59, 130, 246, 0.08));
+            border: 1px solid rgba(52, 211, 153, 0.22);
+            border-radius: 0.75rem;
         }
 
         .article-content strong {
@@ -289,20 +314,76 @@
 
         .article-content ul,
         .article-content ol {
-            margin-bottom: 1.5rem;
-            padding-left: 2rem;
+            margin: 1.1rem 0 1.9rem;
+            padding-left: 1.35rem;
         }
 
         .article-content li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
+            padding-left: 0.25rem;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .article-content li::marker {
+            color: var(--primary);
+            font-weight: 700;
         }
 
         .article-content blockquote {
+            background: rgba(15, 23, 42, 0.78);
             border-left: 4px solid var(--primary);
-            padding-left: 1.5rem;
+            border-radius: 0.75rem;
+            padding: 1.25rem 1.5rem;
+            margin: 2.25rem 0;
+            color: var(--text);
+            font-style: normal;
+            box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.08);
+        }
+
+        .article-content blockquote p {
+            color: var(--text);
+            margin-bottom: 0;
+        }
+
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
             margin: 2rem 0;
-            font-style: italic;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            border: 1px solid var(--dark-lighter);
+            display: block;
+        }
+
+        .article-content thead,
+        .article-content tbody,
+        .article-content tr {
+            width: 100%;
+        }
+
+        .article-content th,
+        .article-content td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        .article-content th {
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.92rem;
+        }
+
+        .article-content td {
             color: var(--text-secondary);
+        }
+
+        .article-content tr:last-child td {
+            border-bottom: 0;
         }
 
         .article-content img {
@@ -322,6 +403,7 @@
             border: 1px solid var(--dark-lighter);
             border-top: none;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            line-height: 1.7;
         }
 
         /* Code Header - Terminal Style */
@@ -400,11 +482,12 @@
 
         /* Alerts/Callouts */
         .article-alert {
-            margin: 2rem 0;
+            margin: 2.25rem 0;
             padding: 1.25rem 1.5rem;
             border-radius: 0.75rem;
             border-left: 4px solid;
             background: rgba(30, 41, 59, 0.5);
+            box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.08);
         }
 
         .alert-title {
@@ -461,6 +544,12 @@
         .alert-content {
             font-size: 1rem;
             color: var(--text-secondary);
+            line-height: 1.75;
+        }
+
+        .alert-content p {
+            font-size: 1rem;
+            line-height: 1.75;
         }
 
         .alert-content p:last-child {

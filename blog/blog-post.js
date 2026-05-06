@@ -191,7 +191,7 @@ class BlogPostRenderer {
             'CAUTION': { icon: 'fa-fire', class: 'caution' }
         };
 
-        return html.replace(/>\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*([\s\S]+?)<\/blockquote>/g, (match, type, content) => {
+        const renderAlert = (type, content) => {
             const config = alerts[type];
             return `
                 <div class="article-alert ${config.class}">
@@ -202,7 +202,11 @@ class BlogPostRenderer {
                     <div class="alert-content">${content}</div>
                 </div>
             `;
-        });
+        };
+
+        return html
+            .replace(/<blockquote>\s*<p>\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\](?:<br\s*\/?>)?\s*([\s\S]*?)<\/p>\s*<\/blockquote>/g, (match, type, content) => renderAlert(type, content))
+            .replace(/>\s*\[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\s*([\s\S]+?)<\/blockquote>/g, (match, type, content) => renderAlert(type, content));
     }
 
     setupCodeBlocks() {
