@@ -4,6 +4,7 @@
 class BlogPostRenderer {
     constructor() {
         this.post = null;
+        this.config = { enableComments: false };
         this.init();
     }
 
@@ -17,11 +18,27 @@ class BlogPostRenderer {
             return;
         }
 
-        await this.loadPost(slug);
+        await this.loadConfig();
+        const postLoaded = await this.loadPost(slug);
+        if (!postLoaded) return;
+
         this.setupSmartHeader();
         this.setupReadingProgress();
         this.setupSocialShare();
         this.setupTableOfContents();
+        this.setupComments();
+    }
+
+    async loadConfig() {
+        try {
+            const response = await fetch('/data/blog-config.json');
+            if (!response.ok) return;
+
+            const config = await response.json();
+            this.config = { ...this.config, ...config };
+        } catch (error) {
+            console.error('Error loading blog config:', error);
+        }
     }
 
     async loadPost(slug) {
@@ -41,10 +58,12 @@ class BlogPostRenderer {
 
             document.getElementById('loading').style.display = 'none';
             document.getElementById('articleContainer').style.display = 'grid';
+            return true;
 
         } catch (error) {
             console.error('Error loading post:', error);
             this.showError('Failed to load blog post');
+            return false;
         }
     }
 
@@ -105,13 +124,13 @@ class BlogPostRenderer {
         document.getElementById('og-url').content = currentUrl;
         document.getElementById('og-title').content = frontmatter.title;
         document.getElementById('og-description').content = description;
-        document.getElementById('og-image').content = frontmatter.image || '/images/blog/default-og.jpg';
+        document.getElementById('og-image').content = frontmatter.image || '/images/profile.jpg';
 
         // Twitter
         document.getElementById('twitter-url').content = currentUrl;
         document.getElementById('twitter-title').content = frontmatter.title;
         document.getElementById('twitter-description').content = description;
-        document.getElementById('twitter-image').content = frontmatter.image || '/images/blog/default-og.jpg';
+        document.getElementById('twitter-image').content = frontmatter.image || '/images/profile.jpg';
 
         // Render article elements
         if (frontmatter.image) {
@@ -139,6 +158,10 @@ class BlogPostRenderer {
 
         // Handle GitHub-style alerts [!NOTE], [!TIP], etc.
         htmlContent = this.renderAlerts(htmlContent);
+
+        if (window.DOMPurify) {
+            htmlContent = DOMPurify.sanitize(htmlContent);
+        }
 
         document.getElementById('articleContent').innerHTML = htmlContent;
 
@@ -340,7 +363,7 @@ class BlogPostRenderer {
         }
 
         const tocItems = Array.from(headings).map((heading, index) => {
-            const id = `heading-${index}`;
+            const id = heading.id || `heading-${index}`;
             heading.id = id;
 
             const level = parseInt(heading.tagName.substring(1));
@@ -413,11 +436,19 @@ class BlogPostRenderer {
                 .filter(p => p.category === currentCategory && p.slug !== currentUrl)
                 .slice(0, 3);
 
-            if (related.length === 0) return;
+            if (related.length === 0) {
+                document.getElementById('relatedPostsSection').style.display = 'none';
+                return;
+            }
 
             const relatedHtml = related.map(post => `
                 <a href="/blog/post.html?post=${post.slug}" class="related-card">
-                    <img src="${post.image || '/images/blog/default.jpg'}" alt="${post.title}">
+                    ${post.image ?
+                    `<img src="${post.image}" alt="${post.title}">` :
+                    `<div style="height: 200px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-newspaper" style="font-size: 3rem; color: rgba(255,255,255,0.35);"></i>
+                    </div>`
+                }
                     <div class="related-card-content">
                         <div class="related-card-category">${post.category}</div>
                         <h3 class="related-card-title">${post.title}</h3>
@@ -433,6 +464,34 @@ class BlogPostRenderer {
         } catch (error) {
             console.error('Error loading related posts:', error);
         }
+    }
+
+    setupComments() {
+        const commentsSection = document.getElementById('commentsSection');
+        const commentsContainer = document.getElementById('commentsContainer');
+
+        if (!this.config.enableComments) {
+            commentsSection.style.display = 'none';
+            return;
+        }
+
+        const script = document.createElement('script');
+        script.src = 'https://giscus.app/client.js';
+        script.dataset.repo = 'manjeetkumar53/manjeetkumar53.github.io';
+        script.dataset.repoId = 'R_kgDON7uKxQ';
+        script.dataset.category = 'Announcements';
+        script.dataset.categoryId = 'DIC_kwDON7uKxc4Cm_F_';
+        script.dataset.mapping = 'pathname';
+        script.dataset.strict = '0';
+        script.dataset.reactionsEnabled = '1';
+        script.dataset.emitMetadata = '0';
+        script.dataset.inputPosition = 'top';
+        script.dataset.theme = 'transparent_dark';
+        script.dataset.lang = 'en';
+        script.dataset.loading = 'lazy';
+        script.crossOrigin = 'anonymous';
+        script.async = true;
+        commentsContainer.appendChild(script);
     }
 
     showError(message) {

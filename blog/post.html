@@ -892,24 +892,19 @@
             </div>
 
             <!-- Related Posts -->
-            <div class="related-posts">
+            <div class="related-posts" id="relatedPostsSection">
                 <h2>Related Posts</h2>
                 <div class="related-grid" id="relatedPosts"></div>
             </div>
 
-            <!-- Comments & Likes (Giscus) -->
-            <div class="comments-section"
+            <!-- Comments & Likes -->
+            <div class="comments-section" id="commentsSection"
                 style="margin-top: 5rem; padding-top: 3rem; border-top: 2px solid var(--dark-lighter);">
                 <div class="section-badge"
                     style="display: inline-block; background: rgba(16, 185, 129, 0.1); color: var(--primary); padding: 0.5rem 1rem; border-radius: 2rem; font-size: 0.85rem; font-weight: 600; margin-bottom: 2rem;">
                     <i class="fas fa-comments"></i> DISCUSSIONS & REACTIONS
                 </div>
-                <script src="https://giscus.app/client.js" data-repo="manjeetkumar53/manjeetkumar53.github.io"
-                    data-repo-id="R_kgDON7uKxQ" data-category="Announcements" data-category-id="DIC_kwDON7uKxc4Cm_F_"
-                    data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
-                    data-input-position="top" data-theme="transparent_dark" data-lang="en" data-loading="lazy"
-                    crossorigin="anonymous" async>
-                    </script>
+                <div id="commentsContainer"></div>
             </div>
         </div>
     </div>
@@ -921,6 +916,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.8/purify.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
 
     <script src="/blog/blog-post.js"></script>

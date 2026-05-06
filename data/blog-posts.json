@@ -1,5 +1,25 @@
 [
   {
+    "slug": "2026-05-06-enterprise-ai-workflows-from-pilots-to-operating-model",
+    "title": "Enterprise AI Workflows: From Pilots to Operating Model",
+    "date": "2026-05-06T09:00:00+02:00",
+    "author": "Manjeet Kumar",
+    "category": "Enterprise AI",
+    "tags": [
+      "Enterprise AI",
+      "Workflow",
+      "ERP",
+      "Procurement",
+      "Logistics",
+      "SaaS"
+    ],
+    "image": "",
+    "excerpt": "A practical operating model for turning AI pilots into governed enterprise workflows across SaaS, logistics, procurement, ERP, and operational teams.",
+    "featured": true,
+    "draft": false,
+    "readingTime": 7
+  },
+  {
     "slug": "2026-02-06-practical-guide-to-claude-agent-teams",
     "title": "Practical Guide to Claude Agent Teams",
     "date": "2026-02-06T12:05:00",
