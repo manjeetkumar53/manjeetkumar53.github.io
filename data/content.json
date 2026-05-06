@@ -603,6 +603,25 @@
       "readingTime": 12
     },
     {
+      "slug": "2026-05-06-llm-routing-engine",
+      "title": "LLM Routing Engine: Smart Model Selection for Cost and Quality",
+      "date": "2026-05-06T11:40:00+02:00",
+      "author": "Manjeet Kumar",
+      "category": "Enterprise AI",
+      "tags": [
+        "Model Routing",
+        "Cost Optimization",
+        "Observability",
+        "Python",
+        "FastAPI"
+      ],
+      "image": "",
+      "excerpt": "Policy-driven routing that sends simple prompts to cheaper models and escalates complex prompts to premium models, while tracking cost, quality proxies, and telemetry.",
+      "featured": true,
+      "draft": false,
+      "readingTime": 5
+    },
+    {
       "slug": "2026-05-06-enterprise-rag-eval-platform",
       "title": "Enterprise RAG Eval Platform: Testing Ground for Grounded AI",
       "date": "2026-05-06T11:35:00+02:00",
@@ -621,27 +640,6 @@
       "featured": true,
       "draft": false,
       "readingTime": 6
-    },
-    {
-      "slug": "2026-05-06-building-a-production-agentic-ai-platform",
-      "title": "Building a Production Agentic AI Platform: Architecture, Guardrails, and Observability",
-      "date": "2026-05-06T11:00:00+02:00",
-      "author": "Manjeet Kumar",
-      "category": "GenAI",
-      "tags": [
-        "Agentic AI",
-        "LLM",
-        "FastAPI",
-        "Guardrails",
-        "Observability",
-        "Production AI",
-        "Python"
-      ],
-      "image": "",
-      "excerpt": "A deep-dive into how I built a production-style agentic AI platform with planner/executor orchestration, typed tool calls, PII guardrails, circuit breakers, SQLite telemetry, and a live operations dashboard.",
-      "featured": true,
-      "draft": false,
-      "readingTime": 14
     }
   ],
   "lastUpdated": "2026-02-02"

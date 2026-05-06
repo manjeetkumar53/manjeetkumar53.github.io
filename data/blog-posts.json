@@ -21,6 +21,25 @@
     "readingTime": 12
   },
   {
+    "slug": "2026-05-06-llm-routing-engine",
+    "title": "LLM Routing Engine: Smart Model Selection for Cost and Quality",
+    "date": "2026-05-06T11:40:00+02:00",
+    "author": "Manjeet Kumar",
+    "category": "Enterprise AI",
+    "tags": [
+      "Model Routing",
+      "Cost Optimization",
+      "Observability",
+      "Python",
+      "FastAPI"
+    ],
+    "image": "",
+    "excerpt": "Policy-driven routing that sends simple prompts to cheaper models and escalates complex prompts to premium models, while tracking cost, quality proxies, and telemetry.",
+    "featured": true,
+    "draft": false,
+    "readingTime": 5
+  },
+  {
     "slug": "2026-05-06-enterprise-rag-eval-platform",
     "title": "Enterprise RAG Eval Platform: Testing Ground for Grounded AI",
     "date": "2026-05-06T11:35:00+02:00",
