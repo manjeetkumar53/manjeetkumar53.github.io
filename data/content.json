@@ -582,6 +582,27 @@
   ],
   "blogPosts": [
     {
+      "slug": "2026-05-06-building-a-production-agentic-ai-platform",
+      "title": "Building a Production Agentic AI Platform: Architecture, Guardrails, and Observability",
+      "date": "2026-05-06T11:00:00+02:00",
+      "author": "Manjeet Kumar",
+      "category": "GenAI",
+      "tags": [
+        "Agentic AI",
+        "LLM",
+        "FastAPI",
+        "Guardrails",
+        "Observability",
+        "Production AI",
+        "Python"
+      ],
+      "image": "",
+      "excerpt": "A deep-dive into how I built a production-style agentic AI platform with planner/executor orchestration, typed tool calls, PII guardrails, circuit breakers, SQLite telemetry, and a live operations dashboard.",
+      "featured": true,
+      "draft": false,
+      "readingTime": 13
+    },
+    {
       "slug": "2026-05-06-enterprise-ai-workflows-from-pilots-to-operating-model",
       "title": "Enterprise AI Workflows: From Pilots to Operating Model",
       "date": "2026-05-06T09:00:00+02:00",
@@ -618,23 +639,6 @@
       "featured": true,
       "draft": false,
       "readingTime": 4
-    },
-    {
-      "slug": "2026-02-06-the-future-of-agentic-ai",
-      "title": "The Future of Agentic AI",
-      "date": "2026-02-06T11:57:00",
-      "author": "Manjeet Kumar",
-      "category": "GenAI",
-      "tags": [
-        "AI",
-        "Tech",
-        "Agents"
-      ],
-      "image": "",
-      "excerpt": "Exploring the shift from chatbots to autonomous agents that can plan, reason, and execute complex workflows.",
-      "featured": true,
-      "draft": false,
-      "readingTime": 1
     }
   ],
   "lastUpdated": "2026-02-02"
