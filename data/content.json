@@ -600,7 +600,7 @@
       "excerpt": "A deep-dive into how I built a production-style agentic AI platform with planner/executor orchestration, typed tool calls, PII guardrails, circuit breakers, SQLite telemetry, and a live operations dashboard.",
       "featured": true,
       "draft": false,
-      "readingTime": 13
+      "readingTime": 14
     },
     {
       "slug": "2026-05-06-enterprise-ai-workflows-from-pilots-to-operating-model",
